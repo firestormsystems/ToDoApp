@@ -944,6 +944,10 @@ function getCookie(cname) {
     }
     return "";
 }
+function deleteCookie() {
+	document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+	document.cookie = "Alerts=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
 function checkCookie() {
     var Alert = "1";
     var AlertPref=getCookie("Alerts");
