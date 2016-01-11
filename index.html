@@ -602,12 +602,15 @@ $(document).keypress(function(e) {
        Rows[0].innerHTML ="";
        } else if (str.includes("/DeleteCookies")){ 
 	       deleteCookie();
-       } else if (str.includes("/NewCookie")){ 
-         //NewCookie NAME VALUE DAYS
+        } else if (str.includes("/NewCookie")){
+         //var NewString =  str.replace("/NewCookie","");
          var NewString = str.split(" ");
          if (NewString[3] == null){
            NewString[3] = 1;
          }
+         setCookie("username",NewString[2],NewString[3]);
+        } else if (str.includes("/DisableAlerts")){
+         setCookie("Alerts",0,1000);
        } else if (str.includes("/Tutorial")){
          var NewString =  str.replace("/Tutorial","");
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
@@ -651,7 +654,9 @@ $(".string-new").click(function(){
          if (NewString[3] == null){
            NewString[3] = 1;
          }
-         setCookie(cname,NewString[2],NewString[3]);
+         setCookie("username",NewString[2],NewString[3]);
+       } else if (str.includes("/DisableAlerts")){
+         setCookie("Alerts",0,1000);
        } else if (str.includes("/Tutorial")){ 
          var NewString =  str.replace("/Tutorial","");
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
@@ -917,7 +922,7 @@ case "NMS":
 //cvalue = Cookie Value
 //exdays = Days untill cookie expires
 function setCookie(cname,cvalue,exdays) {
-  cname  = "username";
+  //cname  = "username";
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires=" + d.toGMTString();
@@ -938,9 +943,16 @@ function getCookie(cname) {
     return "";
 }
 function checkCookie() {
+    var Alert = "1";
+    var AlertPref=getCookie("Alerts");
+    if (AlertPref != "") {
+      Alert = AlertPref;
+    }
     var user=getCookie("username");
     if (user != "") {
+    	if (Alert == "1"){
         alert("Welcome again " + user);
+    	}
       Name = user;
     } else {
        user = prompt("Please enter your name:","");
@@ -949,6 +961,7 @@ function checkCookie() {
          Name = user;
        }
     }
+
 }
     </script>
 
