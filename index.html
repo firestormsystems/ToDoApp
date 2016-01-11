@@ -809,15 +809,16 @@ function GetTasks(case){
 
        }
         if (e+1>=Rows.length){
+       if (case == 0){
        str = $( "#string-text" ).val();
        var NewString =  str.replace("/Export","");
        NewString=('/Load'+Name+'#'+Theme+'#');
        $( "#string-text" ).val(NewString);var str = $( "#string-text" ).val();
        var NewString =  str.replace("/Export","");
        NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
-       if (case == 0){
        $( "#string-text" ).val(NewString);
        } else {
+       NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
        setCookie("Export",NewString,10);
        }
         }
@@ -961,17 +962,17 @@ function checkCookie() {
     if (AlertPref != "") {
       Alert = AlertPref;
     }
-    //var ExportSTR = "";
-    //var Export=getCookie("Export");
-    //if (Export != "") {
-     // ExportSTR = Export;
-      //   var NewString2 =  ExportSTR.split("#");
-      //   Name = NewString2[0];
-       //  Theme = NewString2[1];
-      //   Terminal(NewString2[2]);
-   // } else {
+    var ExportSTR = "";
+    var Export=getCookie("Export");
+    if (Export != "") {
+      ExportSTR = Export;
+         var NewString2 =  ExportSTR.split("#");
+         Name = NewString2[0];
+         Theme = NewString2[1];
+         Terminal(NewString2[2]);
+    } else {
     	
-    //}
+   }
     var user=getCookie("username");
     if (user != "") {
     	if (Alert == "1"){
