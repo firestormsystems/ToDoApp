@@ -751,7 +751,7 @@ function Load (Input){
   }
   
 }
-function GetTasks(case){
+function GetTasks(casel){
   var str = $( "#string-text" ).val();
   var UL = document.getElementById("UL");
   var Rows = UL.getElementsByClassName("row");
@@ -809,7 +809,7 @@ function GetTasks(case){
 
        }
         if (e+1>=Rows.length){
-       if (case == 0){
+       if (casel == 0){
        str = $( "#string-text" ).val();
        var NewString =  str.replace("/Export","");
        NewString=('/Load'+Name+'#'+Theme+'#');
