@@ -936,11 +936,12 @@ function getCookie(cname) {
     }
     return "";
 }
-
+alert("Welcome again1");
 function checkCookie() {
+	alert("Welcome again2");
     var user=getCookie("username");
     if (user != "") {
-        //alert("Welcome again " + user);
+        alert("Welcome again " + user);
       Name = user;
     } else {
        user = prompt("Please enter your name:","");
