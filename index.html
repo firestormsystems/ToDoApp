@@ -561,6 +561,15 @@ $(document).keypress(function(e) {
        var Ul = document.getElementById("UL");
          UL.innerHTML = "";
        Rows[0].innerHTML ="";
+       } else if (str.includes("/Tutorial")){
+         var NewString =  str.replace("/Tutorial","");
+         var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
+         var NewString3 =  NewString2.replace("/Load","");
+         var NewString4 =  NewString3.split("#");
+         Name = NewString4[0];
+         Theme = NewString4[1];
+         // Load(NewString2[2]);
+         Terminal(NewString4[2]);         
        } else {
         
         Terminal(str);
@@ -589,6 +598,15 @@ $(".string-new").click(function(){
        } else if (str.includes("/Name")){ 
          var NewString =  str.replace("/Name","");
           Name = NewString; 
+       } else if (str.includes("/Tutorial")){ 
+         var NewString =  str.replace("/Tutorial","");
+         var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
+         var NewString3 =  NewString2.replace("/Load","");
+         var NewString4 =  NewString3.split("#");
+         Name = NewString4[0];
+         Theme = NewString4[1];
+         // Load(NewString2[2]);
+         Terminal(NewString4[2]);
        } else if (str.includes("/Load")){ 
          var NewString =  str.replace("/Load","");
          var NewString2 =  NewString.split("#");
@@ -828,7 +846,7 @@ case "NMS":
     //$(body).removeClass("NMSTheme");
   }
 }
-
+ 
 
     </script>
 
