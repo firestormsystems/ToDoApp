@@ -18,17 +18,18 @@
 <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
 
         <style>
-      *,
+*,
 *:before,
 *:after {
   box-sizing: border-box;
 }
 
 p {
-  color: #eee;
+  
   text-align: center;
   margin: 60px 0 30px 0;
 }
+
 
 li {
   list-style: none;
@@ -36,11 +37,14 @@ li {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #34495e;
+  
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+.Norm{
+background: #34495e;
 }
 
 .container {
@@ -264,6 +268,38 @@ body {
   float: right;
   padding-right: 10px;
 }
+.JapanTheme {
+  background-image: url("http://bighdwalls.com/wp-content/uploads/japan-fuji-tree-Hd-Wall011.jpg");
+}
+.NMSTheme {
+  background-image: url("http://u.cubeupload.com/Syzygos/NMSConceptArtWallpap.png");
+}
+#Spans {
+  font-size: 16px;
+}
+#foot {
+  
+}
+footer {
+  text-align: center;
+  margin: auto;
+  position:fixed;
+  bottom:15px;
+  width: 100%;
+}
+
+footer a{
+  
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+}
+footer a:hover{
+  
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+}
     </style>
 
     
@@ -273,7 +309,9 @@ body {
 
   <body>
 
-    <p id='MeetNGreet'>Hello</p>
+    <div id='Spans'>
+  <p id='MeetNGreet'>Hello</p>
+</div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
   <div class='add'>
@@ -299,13 +337,22 @@ body {
   </div>
   <ul id='UL'></ul>
 </div>
+<footer id=#foot>
+<footer>
+<a id="ll"class='LIS' href='#'>/About</a>
+<a id="lo"cclass='LIS' href='#'>/CodePen</a>
+<a id="lp"cclass='LIS' href='#'>/Help</a>
+</footer>
+</footer>
     
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
         <script>
-      var Debug = false;
+var Debug = false;
 var DebugVal = "null";
+Theme = "0";
+
 function Terminal (String) {
 var TaskObjs = String.split(",");
 var Message = Array(0);
@@ -487,7 +534,8 @@ $(document).keypress(function(e) {
      if(e.which==13 && str != "" && str != null) {
        if (str.includes("/Theme")){
       var NewString =  str.replace("/Theme","");
-       Theme = NewString[0];
+       Theme = NewString;
+         AAA();
        } else if (str.includes("/Name")){ 
          var NewString =  str.replace("/Name","");
           Name = NewString;
@@ -509,6 +557,10 @@ $(document).keypress(function(e) {
         } else if (str.includes("/Debug")){
           DebugVal="Debug Active";
           Debug = !Debug;
+       } else if (str.includes("/Clear")){ 
+       var Ul = document.getElementById("UL");
+         UL.innerHTML = "";
+       Rows[0].innerHTML ="";
        } else {
         
         Terminal(str);
@@ -528,7 +580,8 @@ $(".string-new").click(function(){
      if( str != "" && str != null) {
        if (str.includes("/Theme")){
       var NewString =  str.replace("/Theme","");
-       Theme = NewString[0];
+       Theme = NewString;
+         AAA();
        } else if (str.includes("/Clear")){ 
        var Ul = document.getElementById("UL");
          UL.innerHTML = "";
@@ -694,26 +747,7 @@ function updateClock() {
   var d = new Date();
   var DateDMY = d.toDateString();
   var Time = d.toLocaleTimeString();
-  switch (Theme){
-  case "0":
-   document.getElementById("title").style.background = "#3498db";
-   document.getElementById("title").style.color = "black";
-   document.getElementById("body").style.background = "#34495e";
-     
-  break;
- case "1":
-   document.getElementById("title").style.background = "white";
-   document.getElementById("title").style.color = "black";
-   document.getElementById("body").style.background = "red";
-     
-  break;
-case "2":
-   document.getElementById("title").style.background = "darkgrey";
-   document.getElementById("title").style.color = "white";
-   document.getElementById("body").style.background = "black";
-     
-  break;
-}
+
 if (Name ==null){
   MeetNGreet.innerHTML = "Hello, It's "+Time+" on "+DateDMY+".";
 } else {
@@ -724,7 +758,78 @@ if (Debug==true){
 }
 
 }
-      //@ sourceURL=pen.js
+function AAA (){
+switch (Theme){
+  case "0":
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "#34495e";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+
+  break;
+      
+ case "1":
+   document.getElementById("title").style.background = "white";
+   document.getElementById("title").style.color = "black";
+   document.getElementById("body").style.background = "red";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+      
+case "2":
+   document.getElementById("title").style.background = "darkgrey";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "black";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+
+  break;
+      
+case "Japan":
+   document.getElementById("title").style.background = "white";
+    document.getElementById("body").style.background = "";
+   document.getElementById("title").style.color = "black";
+   //document.style.background = "transparent";
+  
+   
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+   $(body).addClass("JapanTheme");
+   $(body).removeClass("NMSTheme");
+   break;
+case "NMS":
+   document.getElementById("title").style.background = "#db441e";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "";
+  
+   
+   document.getElementById("Spans").style.color = "#db441e";
+       document.getElementById("ll").style.color = "#db441e";
+       document.getElementById("lo").style.color = "#db441e";
+       document.getElementById("lp").style.color = "#db441e";
+   $(body).addClass("NMSTheme");
+   $(body).removeClass("JapanTheme");
+   break;
+  
+}
+  if (Theme != "Japan"){
+    //$(body).removeClass("JapanTheme");
+  }
+  if (Theme != "NMSTheme"){
+    //$(body).removeClass("NMSTheme");
+  }
+}
+
+
     </script>
 
     
