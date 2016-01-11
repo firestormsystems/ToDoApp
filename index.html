@@ -367,6 +367,27 @@ footer a:hover{
 <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
         <script>
+var Name;
+var Theme;
+var DeafultTheme ="NMS";
+//Themes
+//Japan
+//NMS
+//0
+//1
+//2
+
+//Functions
+// /Clear
+// /Load
+// /Export
+// /Tutorial
+// /Theme
+// /Debug
+// /Name
+// /Example
+
+
 var Debug = false;
 var DebugVal = "null";
 Theme = "0";
@@ -651,6 +672,10 @@ $(".string-new").click(function(){
        }
      }
 });
+//#$%^
+//Needs a bit of TLC. The Terminal uses a Task`H:MMam`D/M/YYYY format.
+//Unfortunately the Export function provides this: "Eample A`Sun Jan 10 2016 04:00:00 GMT-0800 (PST)"
+//You can fix it within like 30mis~. HAVE FUN!! AND LINK THE NEW CODE TO THIS PEN!!
 function Load (Input){
   var NewString =  Input.split(",");
   for (var i = 0; i < NewString.length; i++){
@@ -773,13 +798,13 @@ function GetTasks(){
     }
   }
 
-var Name;
-var Theme;
+
 
 var MeetNGreet =
   document.getElementById("MeetNGreet");
-
+var Lock = false;
 function updateClock() {
+
   var d = new Date();
   var DateDMY = d.toDateString();
   var Time = d.toLocaleTimeString();
@@ -792,7 +817,11 @@ if (Name ==null){
 if (Debug==true){
   MeetNGreet.innerHTML = DebugVal;
 }
-
+  if (!Lock){
+  Theme = DeafultTheme;
+    Lock = true;
+    AAA();
+  }
 }
 function AAA (){
   var sheet= document.getElementById("sheet");
@@ -866,7 +895,43 @@ case "NMS":
     //$(body).removeClass("NMSTheme");
   }
 }
- 
+//cname  = Cookie Name
+//cvalue = Cookie Value
+//exdays = Days untill cookie expires
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+  Name = cvalue;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user=getCookie("username");
+    if (user != "") {
+        //alert("Welcome again " + user);
+      Name = user;
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 10);
+         Name = user;
+       }
+    }
+}
 
     </script>
 
