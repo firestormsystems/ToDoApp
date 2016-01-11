@@ -818,7 +818,7 @@ function GetTasks(casel){
        NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
        $( "#string-text" ).val(NewString);
        } else {
-       NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+       var NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
        setCookie("Export",NewString,10);
        }
         }
