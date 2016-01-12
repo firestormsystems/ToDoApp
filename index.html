@@ -29,8 +29,9 @@ p {
   text-align: center;
   margin: 60px 0 30px 0;
 }
-
-
+.Opacity0{
+    opacity: 0;
+  }
 li {
   list-style: none;
 }
@@ -861,6 +862,7 @@ function AAA (){
   var sheet= document.getElementById("sheet");
 switch (Theme){
   case "0":
+   $(sheet).addClass("Opacity0");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "#34495e";
@@ -872,6 +874,7 @@ switch (Theme){
   break;
       
  case "1":
+   $(sheet).addClass("Opacity0");
    document.getElementById("title").style.background = "white";
    document.getElementById("title").style.color = "black";
    document.getElementById("body").style.background = "red";
@@ -882,6 +885,7 @@ switch (Theme){
   break;
       
 case "2":
+   $(sheet).addClass("Opacity0");
    document.getElementById("title").style.background = "darkgrey";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "black";
@@ -893,6 +897,7 @@ case "2":
   break;
       
 case "Japan":
+   $(sheet).removeClass("Opacity0");
    document.getElementById("title").style.background = "white";
     document.getElementById("body").style.background = "";
    document.getElementById("title").style.color = "black";
@@ -907,6 +912,7 @@ case "Japan":
    $(sheet).removeClass("NMSTheme");
    break;
 case "NMS":
+   $(sheet).removeClass("Opacity0");
    document.getElementById("title").style.background = "#db441e";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "";
