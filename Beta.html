@@ -485,6 +485,7 @@ for (i = 0; i < Times.length; i++) {
 }
 $(document).on('click', '.remove', function() {
   $(this).parent().slideUp();
+  $(this).parent().innerHTML = "";
 });
 $(document).on('click', '.completed', function() {
    $(this).parent().toggleClass("done" );
