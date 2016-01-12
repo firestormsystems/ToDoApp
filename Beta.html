@@ -556,6 +556,7 @@ $(document).keypress(function(e) {
          KeepOpen = true;
         } else if (str.includes("/Debug")){
           DebugVal="Debug Active";
+          Theme = "77890";
           Debug = !Debug;
        } else if (str.includes("/Clear")){ 
        var Ul = document.getElementById("UL");
@@ -645,9 +646,12 @@ $(".string-new").click(function(){
        } else if (str.includes("/Example")){ 
          $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
          KeepOpen = true;
+//##---------------------------------------JAN 11 7:46PM
        } else if (str.includes("/Debug")){
+       	  Theme = "77890";
           DebugVal="Debug Active";
           Debug = !Debug;
+//##---------------------------------------
        } else {
         Terminal(str);
        }
@@ -798,6 +802,19 @@ if (Debug==true){
 function AAA (){
   var sheet= document.getElementById("sheet");
 switch (Theme){
+//##---------------------------------------JAN 11 7:46PM
+  case "77890":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "black";
+       document.getElementById("ll").style.color = "black";
+       document.getElementById("lo").style.color = "black";
+       document.getElementById("lp").style.color = "black";
+  break;
+//##---------------------------------------
   case "0":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
