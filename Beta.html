@@ -1,1 +1,929 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
 
+
+    <title>CodePen - Todo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="//codepen.io/assets/reset/reset.css">
+
+    <link rel='stylesheet prefetch' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
+<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+
+        <style>
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+p {
+  
+  text-align: center;
+  margin: 60px 0 30px 0;
+}
+.Opacity0{
+    opacity: 0;
+  }
+li {
+  list-style: none;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+.Norm{
+background: #34495e;
+}
+.container {
+  background: #2c3e50;
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+  color: #FFF;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.container .title {
+  background: #3498db;
+}
+.container h1 {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+.add {
+  float: right;
+  border-radius: 3px;
+  margin-right: 20px;
+  margin-top: 5px;
+  padding: 8px 10px;
+  background: #2980b9;
+}
+.string {
+  float: right;
+  border-radius: 3px;
+  margin-right: 20px;
+  margin-top: 5px;
+  padding: 8px 10px;
+  background: #2980b9;
+}
+.string:hover {
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+} 
+.add:hover {
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.row {
+  color: #333;
+  background: #FFF;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  line-height: 2.8;
+}
+.row:hover a {
+  width: 40px;
+  opacity: 1;
+}
+.row:nth-child(2n) {
+  background: #f7f7f7;
+}
+.row:hover {
+  background: #eee;
+}
+.remove,
+.snooze,
+.completed {
+  float: right;
+  text-align: center;
+  height: 40px;
+  width: 0;
+  background: #2ecc71;
+  color: #FFF;
+  opacity: 0;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.remove:hover,
+.snooze:hover,
+.completed:hover {
+  background: #27ae60;
+}
+.snooze {
+  background: orange;
+}
+.remove {
+  background: #e74c3c;
+}
+.snooze:hover{
+  background: darkred;
+}
+.remove:hover {
+  background: #c0392b;
+}
+.done {
+  text-decoration: line-through;
+  color: #ccc;
+}
+.add-new {
+  float: right;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background: #2ecc71;
+  color: #FFF;
+  line-height: 2.8;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.add-new:hover {
+  background: #27ae60;
+}
+.string-new {
+  float: right;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background: #2ecc71;
+  color: white;
+  line-height: 2.8;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.string-new:hover {
+  background: #27ae60;
+}
+.console-new {
+  text-align: center;
+  background: black;
+}
+.new-task {
+  display: none;
+}
+.new-task input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background: #ecf0f1;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  width: 760px;
+  padding: 5px 10px;
+  height: 40px;
+  border: none;
+  outline: none;
+}
+.new-string {
+  display: none;
+  color: white;
+}
+.new-string input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background: black;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  width: 760px;
+  padding: 5px 10px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: white;
+}
+.console-help {
+  display: none;
+  color: none;
+}
+.console-help input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  background: black;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  width: 760px;
+  padding: 10px 10px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: white;
+}
+.container .console-help{
+  background: black;
+  overflow: hidden;
+  width: 800px;
+  margin: 0 auto;
+}
+.ui-sortable-helper {
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.reminder {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  color: gray;
+  float: right;
+  padding-right: 10px;
+}
+.JapanTheme {
+  background-image: url("http://bighdwalls.com/wp-content/uploads/japan-fuji-tree-Hd-Wall011.jpg");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
+.NMSTheme {
+  background-image: url("http://u.cubeupload.com/Syzygos/NMSConceptArtWallpap.png");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
+#Spans {
+  font-size: 16px;
+}
+#foot {
+  
+}
+footer {
+  text-align: center;
+  margin: auto;
+  position:fixed;
+  bottom:15px;
+  width: 110%;
+ 
+}
+footer a{
+  
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+}
+footer a:hover{
+  
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+}
+#sheet {
+  width: 110%;
+  height: 110%;
+  margin-left: -5%;
+  background-size: cover;
+}
+#space {
+  height: 12%;
+  width:110%;
+}
+</style>
+
+    
+    
+    
+  </head>
+
+  <body>
+
+  <div id="sheet">
+<div id='Spans'>
+  <p id='MeetNGreet'>Hello</p>
+</div>
+<body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
+<div class='container' id='Container'>
+  <div class='add'>
+    <i class='fa fa-plus'></i>
+  </div>
+  <div class='string'>
+    <i class='fa fa-terminal'></i>
+  </div>
+  <div class='title' id='title'>
+    <h1 id='Name'>to do</h1>
+  </div>
+  <div class='new-task'>
+    <a class='add-new' href='#'>
+      <i class='fa fa-plus'></i>
+    </a>
+    <input id='todo-text' placeholder='New task'>
+  </div>
+  <div class='new-string'>
+    <a class='string-new' href='#'>
+      <i class='fa fa-terminal'></i>
+    </a>
+    <input id='string-text' value='/Example'>
+  </div>
+  <ul id='UL'></ul>
+</div>
+<footer id=#foot>
+<footer>
+<a id="ll"class='LIS' href='#'>/About</a>
+<a id="lo"cclass='LIS' href='#'>/CodePen</a>
+<a id="lp"cclass='LIS' href='#'>/Help</a>
+</footer>
+</footer>
+<div id="space"/>
+</div>
+    
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
+        <script>
+var Name;
+var Theme;
+var DeafultTheme ="NMS";
+//Themes
+//Japan
+//NMS
+//0
+//1
+//2
+//Functions
+// /Clear
+// /Load
+// /Export
+// /Tutorial
+// /Theme
+// /Debug
+// /Name
+// /Example
+var Debug = false;
+var DebugVal = "null";
+Theme = "0";
+function Terminal (String) {
+var TaskObjs = String.split(",");
+var Message = Array(0);
+var Text = Array(0);
+var Dates = Array(0);
+for (var i=0; i<TaskObjs.length;){
+  if (TaskObjs[i].includes("`")) {
+   var TaskSubObj = TaskObjs[i].split("`");
+   //var Message = TaskSubObj[1];
+    
+    Message.push(TaskSubObj[1]);
+    Text.push(TaskSubObj[0]);
+    if (TaskSubObj[2] == null){
+      TaskSubObj[2] = "Today";
+      Dates.push(TaskSubObj[2]);
+    } else {
+    Dates.push(TaskSubObj[2]);
+    }
+    if (i+1 >= TaskObjs.length){
+    ConvertToReal(Message, Text,Dates);
+    }
+    
+    i++;
+  } else {
+   $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("ul");
+    i++;
+}
+}
+}
+//var FakeReminderTimes;
+//function Reminders (InputTime) {
+ // FakeReminderTimes.push(InputTime);
+ // ConvertToReal(FakeReminderTimes);
+//}
+function ConvertToReal (Time,Message,Dates) {
+  
+  var Times = Array(Time.length);
+  var HMSARRAY = Array(Time.length);
+               var d = new Date();
+             var Curr_Year = d.getFullYear();
+             var Curr_Month= d.getMonth();
+             var Curr_Day = d.getDate();
+  Times = Time;
+  cars = Times.length;
+for (i = 0; i < Times.length; i++) { 
+    if (Times[i].includes("pm")){
+       //Times[i].replace("pm","");
+       var HMS = Times[i].split(":");
+      
+       var HMSS = HMS[1].replace("pm","");
+       HMS[1] = HMSS;
+                             
+       for (var e=0; e<1; e++){
+           if (HMS[e].includes("0",0)) {
+             
+             var HMS_S = HMS[e].replace("0","");
+             HMS[e] = HMS_S;
+             var HMS_I = parseInt(HMS[e]);
+             HMS[e] = HMS_I;
+             
+           } else {
+             var HMS_I = parseInt(HMS[e]);
+             HMS[e] = HMS_I;
+             
+           }
+           if (e+1 >= 1){
+              if (Dates[i] == "Today"){
+            var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
+               $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ Message[i] +"</p><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+              } else {
+                var DMY = Dates[i].split("/");
+                var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
+                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ Message[i] +"</p><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+              }
+           }
+       }
+    } else {
+       if (Times[i].includes("am")) {
+       //Times[i].replace("am","");
+       var HMS = Times[i].split(":");
+       var HMSS = HMS[1].replace("am","");
+       HMS[1] = HMSS;
+       for (var o=0; o<1; o++){
+           if (HMS[o].includes("0",0)) {
+             
+             var HMS_S = HMS[o].replace("0","");
+             HMS[o] = HMS_S;
+             var HMS_I = parseInt(HMS[o]);
+             HMS[o] = HMS_S;
+             
+           } else {
+             var HMS_I = parseInt(HMS[o]);
+             HMS[o] = HMS_I;
+             
+           }
+           if (o+1 >=1){
+             if (Dates[i] == "Today"){
+            var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
+               $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'"+ Message[i] +"</p><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+              } else {
+                var DMY = Dates[i].split("/");
+                var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
+                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ Message[i] +"</p><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+              }
+             
+           }
+       }
+       }
+//     }
+    
+}
+    
+}
+}
+$(document).on('click', '.remove', function() {
+  $(this).parent().slideUp();
+});
+$(document).on('click', '.completed', function() {
+   $(this).parent().toggleClass("done" );
+});
+$( "ul" ).sortable();
+$(".add").click(function(){
+				  $(".new-task").slideToggle();
+  $("#todo-text").focus();
+});
+$(".string").click(function(){
+				  $(".new-string").slideToggle();
+          $(".console-help").slideToggle();
+  $("#string-text").focus();
+});
+                     
+// Pressing enter
+$(document).keypress(function(e) {
+    var str = $( "#todo-text" ).val();
+    if(e.which== 16) {
+    $(".new-string").slideToggle();
+    $(".console-help").slideToggle();
+    $("#string-text").focus();
+  }
+    if(e.which == 13 && str != "" && str != null ) {
+       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+       $( "#todo-text" ).val("");
+       $( "#todo-text" ).focus();
+    }
+});
+// Press the + sign
+$(".add-new").click(function(){
+  var str = $( "#todo-text" ).val();
+  
+     if( str != "" && str != null) {
+	       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+       $( "#todo-text" ).val("");
+       $( "#todo-text" ).focus();
+       $(".new-task").slideToggle();
+     }
+});
+$(document).keypress(function(e) {
+  var KeepOpen = false;
+   var str = $( "#string-text" ).val();
+     if(e.which==13 && str != "" && str != null) {
+       if (str.includes("/Theme")){
+      var NewString =  str.replace("/Theme","");
+       Theme = NewString;
+         AAA();
+       } else if (str.includes("/Name")){ 
+         var NewString =  str.replace("/Name","");
+          Name = NewString;
+       } else if (str.includes("/Load")){ 
+         var NewString =  str.replace("/Load","");
+         var NewString2 =  NewString.split("#");
+         Name = NewString2[0];
+         Theme = NewString2[1];
+         // Load(NewString2[2]);
+        Terminal(NewString2[2]);
+       } else if (str.includes("/Export")){
+         var NewString =  str.replace("/Export","");
+         NewString=('/Load'+Name+'#'+Theme+'#');
+         $( "#string-text" ).val(NewString);
+         KeepOpen = true;
+        } else if (str.includes("/Example")){
+         $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
+         KeepOpen = true;
+        } else if (str.includes("/Debug")){
+          DebugVal="Debug Active";
+          Debug = !Debug;
+       } else if (str.includes("/Clear")){ 
+       var Ul = document.getElementById("UL");
+         UL.innerHTML = "";
+       Rows[0].innerHTML ="";
+       } else if (str.includes("/DeleteCookies")){ 
+	       deleteCookie();
+        } else if (str.includes("/NewCookie")){
+         //var NewString =  str.replace("/NewCookie","");
+         var NewString = str.split(" ");
+         if (NewString[3] == null){
+           NewString[3] = 1;
+         }
+         setCookie("username",NewString[2],NewString[3]);
+        } else if (str.includes("/DisableAlerts")){
+         setCookie("Alerts",0,1000);
+       } else if (str.includes("/Tutorial")){
+         var NewString =  str.replace("/Tutorial","");
+         var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
+         var NewString3 =  NewString2.replace("/Load","");
+         var NewString4 =  NewString3.split("#");
+         //Name = NewString4[0];
+         //Theme = NewString4[1];
+         // Load(NewString2[2]);
+         Terminal(NewString4[2]);         
+       } else {
+        
+        Terminal(str);
+       }
+       if (!KeepOpen){
+       $( "#string-text" ).val("");
+       $( "#string-text" ).focus();
+       $(".new-string").slideToggle();
+       }
+     }
+});
+// Press the Terminal sign
+$(".string-new").click(function(){
+  var KeepOpen = false;
+  var str = $( "#string-text" ).val();
+  
+     if( str != "" && str != null) {
+       if (str.includes("/Theme")){
+      var NewString =  str.replace("/Theme","");
+       Theme = NewString;
+         AAA();
+       } else if (str.includes("/Clear")){ 
+       var Ul = document.getElementById("UL");
+         UL.innerHTML = "";
+       Rows[0].innerHTML ="";
+       } else if (str.includes("/Name")){ 
+         var NewString =  str.replace("/Name","");
+          Name = NewString; 
+       } else if (str.includes("/NewCookie")){
+         //var NewString =  str.replace("/NewCookie","");
+         var NewString = str.split(" ");
+         if (NewString[3] == null){
+           NewString[3] = 1;
+         }
+         setCookie("username",NewString[2],NewString[3]);
+       } else if (str.includes("/DisableAlerts")){
+         setCookie("Alerts",0,1000);
+       } else if (str.includes("/Tutorial")){ 
+         var NewString =  str.replace("/Tutorial","");
+         var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
+         var NewString3 =  NewString2.replace("/Load","");
+         var NewString4 =  NewString3.split("#");
+         //Name = NewString4[0];
+         //Theme = NewString4[1];
+         // Load(NewString2[2]);
+         Terminal(NewString4[2]);
+       } else if (str.includes("/Load")){ 
+         var NewString =  str.replace("/Load","");
+         var NewString2 =  NewString.split("#");
+         Name = NewString2[0];
+         Theme = NewString2[1];
+         // Load(NewString2[2]);
+         Terminal(NewString2[2]);
+       } else if (str.includes("/ExportCookie")){ 
+         KeepOpen = true;
+         GetTasks(1);
+       } else if (str.includes("/Export")){ 
+         KeepOpen = true;
+         GetTasks(0);
+       } else if (str.includes("/DeleteCookies")){ 
+	         deleteCookie();
+       } else if (str.includes("/Example")){ 
+         $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
+         KeepOpen = true;
+       } else if (str.includes("/Debug")){
+          DebugVal="Debug Active";
+          Debug = !Debug;
+       } else {
+        Terminal(str);
+       }
+       if (!KeepOpen){
+       $( "#string-text" ).val("");
+       $( "#string-text" ).focus();
+       $(".new-string").slideToggle();
+       }
+     }
+});
+//#$%^
+//Needs a bit of TLC. The Terminal uses a Task`H:MMam`D/M/YYYY format.
+//Unfortunately the Export function provides this: "Eample A`Sun Jan 10 2016 04:00:00 GMT-0800 (PST)"
+//You can fix it within like 30mis~. HAVE FUN!! AND LINK THE NEW CODE TO THIS PEN!!
+function Load (Input){
+  var NewString =  Input.split(",");
+  for (var i = 0; i < NewString.length; i++){
+    if (NewString[i].includes("`")){
+        var NewString2 = NewString.split("`");
+      //Eample A`Sun Jan 10 2016 04:00:00 GMT-0800 (PST)
+        var NewString3 = NewString2[0].split(" ");
+      //Sun,Jan,10,2016,04:00:00,GMT-0800,(PST)
+        var NewString4 = NewString3[4].split(":");
+      if (NewString4[0].includes("0")){
+         var NewHour = NewString4[0].replace("0","");
+         var Hours = parseInt(NewHour);
+      if (Hours>12){
+         var USH = Hours - 12;
+      if (NewString4[1].includes("0")){
+         var Minutes = NewString4[1].replace("0","");
+         var d = (USH+":"+Minutes+"pm");
+        } else {
+          var Minutes = NewString4[1];
+          var d = (USH+":"+Minutes+"pm");
+        }
+      } else {
+         if (NewString4[1].includes("0")){
+         var Minutes = NewString4[1].replace("0","");
+         var d = (USH+":"+Minutes+"pm");
+        }
+         var d = (Hours+":"+NewString4[1]+"am");
+      }
+      } else {
+         var Hours = parseInt(NewString4[0]);
+      if (Hours>12){
+         var USH = Hours - 12;
+         var d = (USH+":"+NewString4[1]+"pm");
+      } else {
+         var d = (Hours+":"+NewString4[1]+"am");
+      }
+      }
+     
+            
+       // var d = new Date(1993, 6, 28, 14, 39, 7);
+      //  console.log(d.toString());     // logs Wed Jul 28 1993 14:39:07 GMT-0600 (PDT)
+        //console.log(d.toDateString()); // logs Wed Jul 28 1993
+    } else {
+      
+    }
+  }
+  
+}
+function GetTasks(casel){
+  var str = $( "#string-text" ).val();
+  var UL = document.getElementById("UL");
+  var Rows = UL.getElementsByClassName("row");
+  var Tasks = Array(0);
+  var TaskMesg = Array(0);
+  var ActReminders = Array(0);
+  for (var i = 0; i < Rows.length; i++){
+  
+  var Reminders = Rows[i].getElementsByClassName("reminder");
+    
+  if (Reminders[0] == null 
+      || Reminders[0] == "null" 
+      || Reminders[0] == ""){
+        var Msg = Rows[i].getElementsByClassName("Message");
+        TaskMesg.push(Msg[0].innerHTML);
+        var ReminderStr = "null";
+        ActReminders.push(ReminderStr);
+    
+  } else {
+    var ReminderStr = Reminders[0].innerHTML;
+    ActReminders.push(ReminderStr);
+    var Msg = Array(0);
+    Msg = Rows[i].getElementsByClassName("Message");
+    DebugVal = "Stage 6 "+ Msg[0].innerHTML;
+    TaskMesg.push(Msg[0].innerHTML);
+              // DebugVal = "Stage 6 " + Msg[0];
+  }
+    
+    if (i +1 >= Rows.length){
+      for (var e = 0; e< Rows.length; e++){
+        
+       if (ActReminders[e]=="null"
+          || ActReminders[e] == ""
+          || ActReminders[e] == null){
+         var ObjToPush = TaskMesg[e];               
+         Tasks.push(ObjToPush);
+       } else {
+         var ObjToPush = TaskMesg[e];
+         // DebugVal = "Stage 7 ObjToPush = "+ObjToPush;
+         ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
+         Tasks.push(ObjToPush);
+                 
+       }
+        if (e+1>=Rows.length){
+       if (casel == 0){
+       str = $( "#string-text" ).val();
+       var NewString =  str.replace("/Export","");
+       NewString=('/Load'+Name+'#'+Theme+'#');
+       $( "#string-text" ).val(NewString);var str = $( "#string-text" ).val();
+       var NewString =  str.replace("/Export","");
+       NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+       $( "#string-text" ).val(NewString);
+       } else {
+       var NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+       setCookie("Export",NewString,10);
+       }
+        }
+       }
+       
+      }
+    }
+  }
+var MeetNGreet =
+  document.getElementById("MeetNGreet");
+var Lock = false;
+function updateClock() {
+  var d = new Date();
+  var DateDMY = d.toDateString();
+  var Time = d.toLocaleTimeString();
+if (Name ==null){
+  MeetNGreet.innerHTML = "Hello, It's "+Time+" on "+DateDMY+".";
+} else {
+  MeetNGreet.innerHTML = "Hello "+Name+", It's "+Time+" on "+DateDMY+".";
+}
+if (Debug==true){
+  MeetNGreet.innerHTML = DebugVal;
+}
+  if (!Lock){
+  Theme = DeafultTheme;
+    Lock = true;
+    checkCookie();
+    AAA();
+  }
+}
+function AAA (){
+  var sheet= document.getElementById("sheet");
+switch (Theme){
+  case "0":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "#34495e";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+      
+ case "1":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   document.getElementById("title").style.background = "white";
+   document.getElementById("title").style.color = "black";
+   document.getElementById("body").style.background = "red";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+      
+case "2":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   document.getElementById("title").style.background = "darkgrey";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "black";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+      
+case "Japan":
+   document.getElementById("title").style.background = "white";
+    document.getElementById("body").style.background = "";
+   document.getElementById("title").style.color = "black";
+   //document.style.background = "transparent";
+  
+   
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+   $(sheet).addClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   break;
+case "NMS":
+   document.getElementById("title").style.background = "#db441e";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "";
+  
+   
+   document.getElementById("Spans").style.color = "#db441e";
+       document.getElementById("ll").style.color = "#db441e";
+       document.getElementById("lo").style.color = "#db441e";
+       document.getElementById("lp").style.color = "#db441e";
+    
+   $(sheet).addClass("NMSTheme");
+   $(sheet).removeClass("JapanTheme");
+   break;
+  
+}
+  if (Theme != "Japan"){
+    //$(body).removeClass("JapanTheme");
+  }
+  if (Theme != "NMSTheme"){
+    //$(body).removeClass("NMSTheme");
+  }
+}
+//cvalue = Cookie Value
+//exdays = Days untill cookie expires
+function setCookie(cname,cvalue,exdays) {
+  //cname  = "username";
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname+"="+cvalue+"; "+expires;
+    if (cname == "username"){
+    	Name = cvalue;
+    }
+}
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function deleteCookie() {
+	document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+	document.cookie = "Alerts=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
+function checkCookie() {
+    var Alert = "1";
+    var AlertPref=getCookie("Alerts");
+    if (AlertPref != "") {
+      Alert = AlertPref;
+    }
+    var ExportSTR = "";
+    var Export=getCookie("Export");
+    if (Export != "") {
+      ExportSTR = Export;
+         var NewString2 =  ExportSTR.split("#");
+         Name = NewString2[0];
+         Theme = NewString2[1];
+         Terminal(NewString2[2]);
+    } else {
+    	
+   }
+    var user=getCookie("username");
+    if (user != "") {
+    	if (Alert == "1"){
+        alert("Welcome again " + user);
+    	}
+      Name = user;
+    } else {
+       user = prompt("Please enter your name:","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 10);
+         Name = user;
+       }
+    }
+}
+    </script>
+
+    
+    
+    
+  </body>
+</html>
