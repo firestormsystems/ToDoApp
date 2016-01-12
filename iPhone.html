@@ -1121,6 +1121,8 @@ if (Name ==null){
 }
 if (Debug==true){
   MeetNGreet.innerHTML = DebugVal;
+  Theme = "77890";
+  AAA();
 }
   if (!Lock){
   Theme = DeafultTheme;
@@ -1132,6 +1134,19 @@ if (Debug==true){
 function AAA (){
   var sheet= document.getElementById("sheet");
 switch (Theme){
+  //##---------------------------------------JAN 11 7:46PM
+  case "77890":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "black";
+       document.getElementById("ll").style.color = "black";
+       document.getElementById("lo").style.color = "black";
+       document.getElementById("lp").style.color = "black";
+  break;
+//##---------------------------------------
   case "0":
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
