@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0e January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0f January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -981,8 +981,7 @@ function checkCookie() {
           		notify(titler,"WelcomeMessage");
          // 	}	
     	} else if (Alert == "0"){
-    		        var titler = "Hi there "+user+"!";
-          		notify(titler,"Notifications Currently disabled");
+		WelcomeMessageFunction();
     	}
       Name = user;
     } else {
@@ -1034,19 +1033,19 @@ function notify (Title_N,Body_N) {
         return;
     }
 };
-// WelcomeMessageFunction () {
-// 	var dc = new Date();
-// 	var hourse = dc.getHours();
-// 	if (hourse > 12){
-// 		WelcomeMessage = "Good Afternoon";
-// 		var title = "Hi there "+Name+"!";
-//           	notify(title,WelcomeMessage);
-// 	} else {
-// 		WelcomeMessage = "Good Morning";
-// 		var title = "Hi there "+Name+"!";
-//           	notify(title,WelcomeMessage);
-// 	}
-// }
+function WelcomeMessageFunction () {
+	var dc = new Date();
+	var hourse = dc.getHours();
+	if (hourse > 12){
+		WelcomeMessage = "Good Afternoon";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
+	} else {
+		WelcomeMessage = "Good Morning";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
+	}
+}
 
     </script>
 
