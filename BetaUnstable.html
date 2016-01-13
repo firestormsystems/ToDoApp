@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0h January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0i January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -424,7 +424,7 @@ var TaskObjs = String.split(",");
 var Message = Array(TaskObjs.length);
 var Text = Array(TaskObjs.length);
 var Dates = Array(TaskObjs.length);
-for (var i=0; i<TaskObjs.length;){
+for (var i=0; i<TaskObjs.length;i++){
   if (TaskObjs[i].includes("`")) {
    var TaskSubObj = TaskObjs[i].split("`");
    //var Message = TaskSubObj[1];
@@ -437,15 +437,15 @@ for (var i=0; i<TaskObjs.length;){
     } else {
     Dates[i]   = TaskSubObj[2];
     }
-    if (i+1 >= TaskObjs.length){
-    ConvertToReal(Message,Text,Dates);
-    }
-    
-    i++;
+    	if (i+1 >= TaskObjs.length){
+    	ConvertToReal(Message,Text,Dates);
+    	}
   } else {
    $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("ul");
-    i++;
-}
+	if (i+1 >= TaskObjs.length){
+    	ConvertToReal(Message,Text,Dates);
+    	}
+  }
 }
 }
 //var FakeReminderTimes;
@@ -626,7 +626,7 @@ $(document).keypress(function(e) {
          $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
          KeepOpen = true;
         } else if (str.includes("/Debug")){
-          DebugVal="Debug Active v1.0h January 12, 2016";
+          DebugVal="Debug Active v1.0i January 12, 2016";
           Theme = "77890";
           Debug = !Debug;
        } else if (str.includes("/Clear")){ 
@@ -722,7 +722,7 @@ $(".string-new").click(function(){
 //##---------------------------------------JAN 11 7:46PM
        } else if (str.includes("/Debug")){
        	  Theme = "77890";
-          DebugVal="Debug Active v1.0f January 12, 2016";
+          DebugVal="Debug Active v1.0i January 12, 2016";
           Debug = !Debug;
 //##---------------------------------------
        } else {
