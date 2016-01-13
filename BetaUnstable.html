@@ -585,11 +585,12 @@ $(document).keypress(function(e) {
          Theme = NewString2[1];
          // Load(NewString2[2]);
          Terminal(NewString2[2]);
-       } else if (str.includes("/Export")){
-         var NewString =  str.replace("/Export","");
-         NewString=('/Load'+Name+'#'+Theme+'#');
-         $( "#string-text" ).val(NewString);
+       } else if (str.includes("/ExportCookie")){ 
          KeepOpen = true;
+         GetTasks(1);
+       } else if (str.includes("/Export")){ 
+         KeepOpen = true;
+         GetTasks(0);
         } else if (str.includes("/Example")){
          $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
          KeepOpen = true;
@@ -755,13 +756,83 @@ function Load (Input){
   }
   
 }
-function GetTasks(casel){
+//## Depreciated function GetTasks(casel){
+//   var str = $( "#string-text" ).val();
+//   var UL = document.getElementById("UL");
+//   var Rows = UL.getElementsByClassName("row");
+//   var Tasks = Array(0);
+//   var TaskMesg = Array(0);
+//   var ActReminders = Array(0);
+//   for (var i = 0; i < Rows.length; i++){
+  
+//   var Reminders = Rows[i].getElementsByClassName("reminder");
+    
+//   if (Reminders[0] == null 
+//       || Reminders[0] == "null" 
+//       || Reminders[0] == ""){
+//         var Msg = Rows[i].getElementsByClassName("Message");
+//         TaskMesg.push(Msg[0].innerHTML);
+//         var ReminderStr = "null";
+//         ActReminders.push(ReminderStr);
+    
+//   } else {
+// //##---------------------------------------JAN 11 7:46PM
+//     //var ReminderStr = Reminders[0].innerHTML;
+//     var ReminderStr = Reminders[0].getAttribute("data-reminder");
+// //##---------------------------------------
+//     ActReminders.push(ReminderStr);
+//     var Msg = Array(0);
+//     Msg = Rows[i].getElementsByClassName("Message");
+//     TaskMesg.push(Msg[0].innerHTML);
+//     // DebugVal = "Stage 6 " + Msg[0];
+//   }
+    
+//     if (i +1 >= Rows.length){
+//       for (var e = 0; e< Rows.length; e++){
+        
+//       if (ActReminders[e]=="null"
+//           || ActReminders[e] == ""
+//           || ActReminders[e] == null){
+//          var ObjToPush = TaskMesg[e];               
+//          Tasks.push(ObjToPush);
+//       } else {
+//          var ObjToPush = TaskMesg[e];
+//          // DebugVal = "Stage 7 ObjToPush = "+ObjToPush;
+// //##---------------------------------------
+//          // ObjToPush = (TaskMesg[e]+"`"+ActReminders[e]);
+//             ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
+//          Tasks.push(ObjToPush);
+// //##---------------------------------------
+//       }
+//         if (e+1>=Rows.length){
+//       if (casel == 0){
+//       	str = $( "#string-text" ).val();
+//       	var NewString =  str.replace("/Export","");
+//       	NewString=('/Load'+Name+'#'+Theme+'#');
+//       	$( "#string-text" ).val(NewString);var str = $( "#string-text" ).val();
+//       	var NewString =  str.replace("/Export","");
+//       	NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+//       	$( "#string-text" ).val(NewString);
+//       } else if (casel == 2){
+//          var NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+//          setCookie("Export",NewString,1000);
+//       } else if (casel == 1){
+// 	 var NewString=('/Load'+Name+'#'+Theme+'#'+Tasks.toString());
+//       	 setCookie("Export",NewString,10);
+//       }
+//         }
+//       }
+       
+//       }
+//     }
+//   }
+  function GetTasks(casel){
   var str = $( "#string-text" ).val();
   var UL = document.getElementById("UL");
   var Rows = UL.getElementsByClassName("row");
-  var Tasks = Array(0);
-  var TaskMesg = Array(0);
-  var ActReminders = Array(0);
+  var Tasks = Array(Rows.length);
+  var TaskMesg = Array(Rows.length);
+  var ActReminders = Array(Rows.length);
   for (var i = 0; i < Rows.length; i++){
   
   var Reminders = Rows[i].getElementsByClassName("reminder");
@@ -770,19 +841,19 @@ function GetTasks(casel){
       || Reminders[0] == "null" 
       || Reminders[0] == ""){
         var Msg = Rows[i].getElementsByClassName("Message");
-        TaskMesg.push(Msg[0].innerHTML);
+        TaskMesg.[i] = Msg[0].innerHTML;
         var ReminderStr = "null";
-        ActReminders.push(ReminderStr);
+        ActReminders[i] = ReminderStr;
     
   } else {
 //##---------------------------------------JAN 11 7:46PM
     //var ReminderStr = Reminders[0].innerHTML;
     var ReminderStr = Reminders[0].getAttribute("data-reminder");
 //##---------------------------------------
-    ActReminders.push(ReminderStr);
+    ActReminders[i] = ReminderStr;
     var Msg = Array(0);
     Msg = Rows[i].getElementsByClassName("Message");
-    TaskMesg.push(Msg[0].innerHTML);
+    TaskMesg[i] = Msg[0].innerHTML;
     // DebugVal = "Stage 6 " + Msg[0];
   }
     
@@ -792,15 +863,15 @@ function GetTasks(casel){
        if (ActReminders[e]=="null"
           || ActReminders[e] == ""
           || ActReminders[e] == null){
-         var ObjToPush = TaskMesg[e];               
-         Tasks.push(ObjToPush);
+         var ObjToPush = TaskMesg[e]; 
+         Tasks[e] = ObjToPush;
        } else {
          var ObjToPush = TaskMesg[e];
          // DebugVal = "Stage 7 ObjToPush = "+ObjToPush;
 //##---------------------------------------
          // ObjToPush = (TaskMesg[e]+"`"+ActReminders[e]);
             ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
-         Tasks.push(ObjToPush);
+         Tasks[e] = ObjToPush;
 //##---------------------------------------
        }
         if (e+1>=Rows.length){
