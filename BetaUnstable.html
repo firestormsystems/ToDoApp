@@ -388,23 +388,54 @@ if (!AutoSaveEnabled){
 // /DeleteCookies
 var Debug = false;
 var DebugVal = "null";
+
+// function Terminal (String) { ##Depreciated
+// var TaskObjs = String.split(",");
+// var Message = Array(0);
+// var Text = Array(0);
+// var Dates = Array(0);
+// for (var i=0; i<TaskObjs.length;){
+//   if (TaskObjs[i].includes("`")) {
+//    var TaskSubObj = TaskObjs[i].split("`");
+//    //var Message = TaskSubObj[1];
+    
+//     Message.push(TaskSubObj[1]);
+//     Text.push(TaskSubObj[0]);
+//     if (TaskSubObj[2] == null){
+//       TaskSubObj[2] = "Today";
+//       Dates.push(TaskSubObj[2]);
+//     } else {
+//     Dates.push(TaskSubObj[2]);
+//     }
+//     if (i+1 >= TaskObjs.length){
+//     ConvertToReal(Message,Text,Dates);
+//     }
+    
+//     i++;
+//   } else {
+//    $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("ul");
+//     i++;
+// }
+// }
+// }
+
 function Terminal (String) {
 var TaskObjs = String.split(",");
-var Message = Array(0);
-var Text = Array(0);
-var Dates = Array(0);
+var Message = Array(TaskObjs.length);
+var Text = Array(TaskObjs.length);
+var Dates = Array(TaskObjs.length);
 for (var i=0; i<TaskObjs.length;){
   if (TaskObjs[i].includes("`")) {
    var TaskSubObj = TaskObjs[i].split("`");
    //var Message = TaskSubObj[1];
     
-    Message.push(TaskSubObj[1]);
-    Text.push(TaskSubObj[0]);
+    Message[i] = TaskSubObj[1];
+    Text[i]    = TaskSubObj[0];
     if (TaskSubObj[2] == null){
       TaskSubObj[2] = "Today";
-      Dates.push(TaskSubObj[2]);
+    Dates[i]   = TaskSubObj[2];
     } else {
-    Dates.push(TaskSubObj[2]);
+    Dates[i]   = TaskSubObj[2];
     }
     if (i+1 >= TaskObjs.length){
     ConvertToReal(Message,Text,Dates);
