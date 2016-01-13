@@ -394,7 +394,8 @@ var TaskObjs = String.split(",");
 var Message = Array(0);
 var Text = Array(0);
 var Dates = Array(0);
-for (var i=0; i<TaskObjs.length;){
+var i =0;
+for (i=0;i<TaskObjs.length;){
   if (TaskObjs[i].includes("`")) {
    var TaskSubObj = TaskObjs[i].split("`");
    //var Message = TaskSubObj[1];
@@ -419,9 +420,10 @@ for (var i=0; i<TaskObjs.length;){
   //  }
     i++;
 }
-} else {
-	ConvertToReal(Message,Text,Dates);
 }
+    if (i+1 >= TaskObjs.length){
+	 ConvertToReal(Message,Text,Dates);	
+    }
 }
 
 // function Terminal (String) {
