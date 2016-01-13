@@ -350,7 +350,7 @@ footer a:hover{
 <div id="space"/>
 </div>
     
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 
         <script>
@@ -358,13 +358,18 @@ var Name;
 var Theme;
 var DeafultTheme ="NMS";
 var CustomWelcomeMessage = null;
-var WelcomeMessage = {
+var WelcomeMessage;
+WelcomeMessageFunction () {
 	var d = new Date();
 	var hours = d.getHours();
 	if (hours > 12){
-		return "Good Afternoon";
+		WelcomeMessage = "Good Afternoon";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
 	} else {
-		return "Good Morning";
+		WelcomeMessage = "Good Morning";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
 	}
 }
 //Themes
@@ -981,7 +986,8 @@ function checkCookie() {
         	if (WelcomeMessage != null
           	||WelcomeMessage != ""
           	||WelcomeMessage != "null") {
-          	
+          	  WelcomeMessageFunction();
+
           	} else {
           		var title = "Hi there "+Name+"!";
           		notify(title,WelcomeMessage);
