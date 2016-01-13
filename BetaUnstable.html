@@ -966,7 +966,7 @@ function checkCookie() {
           ||WelcomeMessage != "null") {
           	
           } else {
-          	var title = "Hi there "+Name+"!";
+          	var title = "Hi there "+User+"!";
           	notify(title,"WelcomeMessage");
           }
         
@@ -974,10 +974,10 @@ function checkCookie() {
         	if (WelcomeMessage != null
           	||WelcomeMessage != ""
           	||WelcomeMessage != "null") {
-          	  WelcomeMessageFunction();
+          	  //WelcomeMessageFunction();
 
           	} else {
-          		var title = "Hi there "+Name+"!";
+          		var title = "Hi there "+User+"!";
           		notify(title,"WelcomeMessage");
           	}	
     	}
