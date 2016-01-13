@@ -357,6 +357,7 @@ footer a:hover{
 var Name;
 var Theme;
 var DeafultTheme ="NMS";
+var CustomWelcomeMessage = null;
 var WelcomeMessage = {
 	var d = new Date();
 	var hours = d.getHours();
@@ -369,6 +370,7 @@ var WelcomeMessage = {
 //Themes
 //Japan
 //NMS
+//77890
 //0
 //1
 //2
@@ -376,11 +378,14 @@ var WelcomeMessage = {
 // /Clear
 // /Load
 // /Export
+// /ExportCookie
+// /DisableAlerts
 // /Tutorial
 // /Theme
 // /Debug
 // /Name
 // /Example
+// /DeleteCookies
 var Debug = false;
 var DebugVal = "null";
 function Terminal (String) {
