@@ -764,9 +764,11 @@ function GetTasks(casel){
        } else {
          var ObjToPush = TaskMesg[e];
          // DebugVal = "Stage 7 ObjToPush = "+ObjToPush;
-         ObjToPush = (TaskMesg[e]+"`"+ActReminders[e]);
+//##---------------------------------------
+         // ObjToPush = (TaskMesg[e]+"`"+ActReminders[e]);
+            ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
          Tasks.push(ObjToPush);
-                 
+//##---------------------------------------
        }
         if (e+1>=Rows.length){
        if (casel == 0){
