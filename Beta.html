@@ -5,7 +5,7 @@
     <meta name="google" value="notranslate">
 
 
-    <title>CodePen - Todo</title>
+    <title>Todo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="//codepen.io/assets/reset/reset.css">
@@ -21,7 +21,8 @@
 *:after {
   box-sizing: border-box;
 }
-#MeetNGreet {
+p {
+  
   text-align: center;
   margin: 60px 0 30px 0;
 }
@@ -101,10 +102,6 @@ background: #34495e;
 }
 .row:hover {
   background: #eee;
-}
-.row p {
-  float: left;
-  /*text-align:right;*/
 }
 .remove,
 .snooze,
@@ -293,14 +290,8 @@ footer a:hover{
   position: fixed;
 }
 #space {
-  height: 12%;
-  width:110%;
-}
-/*------------*/
-/*     NEW    */
-/*------------*/
-.Message {
-  /*text-align:left;*/
+    height: 12%;
+  width: 600px;
 }
 </style>
 
@@ -394,12 +385,12 @@ for (var i=0; i<TaskObjs.length;){
     Dates.push(TaskSubObj[2]);
     }
     if (i+1 >= TaskObjs.length){
-    ConvertToReal(Message,Text,Dates);
+    ConvertToReal(Message, Text,Dates);
     }
     
     i++;
   } else {
-   $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("ul");
+   $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ TaskObjs[i] +"</span></li>" ).fadeIn().appendTo("ul");
     i++;
 }
 }
@@ -443,11 +434,11 @@ for (i = 0; i < Times.length; i++) {
            if (e+1 >= 1){
               if (Dates[i] == "Today"){
             var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
-                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+Dates[i]"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+               $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
               } else {
                 var DMY = Dates[i].split("/");
                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
-                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+Dates[i]"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
               }
            }
        }
@@ -473,11 +464,11 @@ for (i = 0; i < Times.length; i++) {
            if (o+1 >=1){
              if (Dates[i] == "Today"){
             var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
-                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+Dates[i]"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+               $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
               } else {
                 var DMY = Dates[i].split("/");
                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
-                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+Dates[i]"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                 $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
               }
              
            }
@@ -491,18 +482,17 @@ for (i = 0; i < Times.length; i++) {
 }
 $(document).on('click', '.remove', function() {
   $(this).parent().slideUp();
-  $(this).parent().innerHTML = "";
 });
 $(document).on('click', '.completed', function() {
    $(this).parent().toggleClass("done" );
 });
 $( "ul" ).sortable();
 $(".add").click(function(){
-   $(".new-task").slideToggle();
+				  $(".new-task").slideToggle();
   $("#todo-text").focus();
 });
 $(".string").click(function(){
-	  $(".new-string").slideToggle();
+				  $(".new-string").slideToggle();
           $(".console-help").slideToggle();
   $("#string-text").focus();
 });
@@ -516,7 +506,7 @@ $(document).keypress(function(e) {
     $("#string-text").focus();
   }
     if(e.which == 13 && str != "" && str != null ) {
-       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ str +"</span></li>" ).fadeIn().appendTo("ul");
        $( "#todo-text" ).val("");
        $( "#todo-text" ).focus();
     }
@@ -526,13 +516,12 @@ $(".add-new").click(function(){
   var str = $( "#todo-text" ).val();
   
      if( str != "" && str != null) {
-       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+	       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ str +"</span></li>" ).fadeIn().appendTo("ul");
        $( "#todo-text" ).val("");
        $( "#todo-text" ).focus();
        $(".new-task").slideToggle();
      }
 });
-// Press the enter key
 $(document).keypress(function(e) {
   var KeepOpen = false;
    var str = $( "#string-text" ).val();
@@ -550,7 +539,7 @@ $(document).keypress(function(e) {
          Name = NewString2[0];
          Theme = NewString2[1];
          // Load(NewString2[2]);
-         Terminal(NewString2[2]);
+        Terminal(NewString2[2]);
        } else if (str.includes("/Export")){
          var NewString =  str.replace("/Export","");
          NewString=('/Load'+Name+'#'+Theme+'#');
@@ -561,7 +550,6 @@ $(document).keypress(function(e) {
          KeepOpen = true;
         } else if (str.includes("/Debug")){
           DebugVal="Debug Active";
-          Theme = "77890";
           Debug = !Debug;
        } else if (str.includes("/Clear")){ 
        var Ul = document.getElementById("UL");
@@ -583,8 +571,8 @@ $(document).keypress(function(e) {
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
          var NewString3 =  NewString2.replace("/Load","");
          var NewString4 =  NewString3.split("#");
-         //Name = NewString4[0];
-         //Theme = NewString4[1];
+         Name = NewString4[0];
+         Theme = NewString4[1];
          // Load(NewString2[2]);
          Terminal(NewString4[2]);         
        } else {
@@ -629,8 +617,8 @@ $(".string-new").click(function(){
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
          var NewString3 =  NewString2.replace("/Load","");
          var NewString4 =  NewString3.split("#");
-         //Name = NewString4[0];
-         //Theme = NewString4[1];
+         Name = NewString4[0];
+         Theme = NewString4[1];
          // Load(NewString2[2]);
          Terminal(NewString4[2]);
        } else if (str.includes("/Load")){ 
@@ -640,25 +628,20 @@ $(".string-new").click(function(){
          Theme = NewString2[1];
          // Load(NewString2[2]);
          Terminal(NewString2[2]);
-//##---------------------------------------JAN 12 3:47PM
        } else if (str.includes("/ExportCookie")){ 
          KeepOpen = true;
          GetTasks(1);
        } else if (str.includes("/Export")){ 
          KeepOpen = true;
          GetTasks(0);
-//##---------------------------------------
        } else if (str.includes("/DeleteCookies")){ 
 	         deleteCookie();
        } else if (str.includes("/Example")){ 
          $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
          KeepOpen = true;
-//##---------------------------------------JAN 11 7:46PM
        } else if (str.includes("/Debug")){
-       	  Theme = "77890";
           DebugVal="Debug Active";
           Debug = !Debug;
-//##---------------------------------------
        } else {
         Terminal(str);
        }
@@ -741,16 +724,13 @@ function GetTasks(casel){
         ActReminders.push(ReminderStr);
     
   } else {
-//##---------------------------------------JAN 11 7:46PM
     var ReminderStr = Reminders[0].innerHTML;
-    //  var ReminderStr = Reminders[0].getAttribute("data-reminder");
-//##---------------------------------------
     ActReminders.push(ReminderStr);
     var Msg = Array(0);
     Msg = Rows[i].getElementsByClassName("Message");
     DebugVal = "Stage 6 "+ Msg[0].innerHTML;
     TaskMesg.push(Msg[0].innerHTML);
-    // DebugVal = "Stage 6 " + Msg[0];
+              // DebugVal = "Stage 6 " + Msg[0];
   }
     
     if (i +1 >= Rows.length){
@@ -764,11 +744,9 @@ function GetTasks(casel){
        } else {
          var ObjToPush = TaskMesg[e];
          // DebugVal = "Stage 7 ObjToPush = "+ObjToPush;
-//##---------------------------------------
-         // ObjToPush = (TaskMesg[e]+"`"+ActReminders[e]);
-            ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
+         ObjToPush = (TaskMesg[e]+"`"+ActReminders[e])
          Tasks.push(ObjToPush);
-//##---------------------------------------
+                 
        }
         if (e+1>=Rows.length){
        if (casel == 0){
@@ -803,6 +781,8 @@ if (Name ==null){
 }
 if (Debug==true){
   MeetNGreet.innerHTML = DebugVal;
+  Theme = "77890";
+  AAA();
 }
   if (!Lock){
   Theme = DeafultTheme;
@@ -959,6 +939,48 @@ function checkCookie() {
        }
     }
 }
+var notify = function () {
+    // Check for notification compatibility.
+    if (!'Notification' in window) {
+        // If the browser version is unsupported, remain silent.
+        return;
+    }
+    // Log current permission level
+    console.log(Notification.permission);
+    // If the user has not been asked to grant or deny notifications
+    // from this domain...
+    if (Notification.permission === 'default') {
+        Notification.requestPermission(function () {
+            // ...callback this function once a permission level has been set.
+            notify();
+        });
+    }
+    // If the user has granted permission for this domain to send notifications...
+    else if (Notification.permission === 'granted') {
+        var n = new Notification(
+                    'New message from Liz',
+                    {
+                      'body': 'Liz: "Hi there!"',
+                      // ...prevent duplicate notifications
+                      'tag' : 'unique string'
+                    }
+                );
+        // Remove the notification from Notification Center when clicked.
+        n.onclick = function () {
+            this.close();
+        };
+        // Callback function when the notification is closed.
+        n.onclose = function () {
+            console.log('Notification closed');
+        };
+    }
+    // If the user does not want notifications to come from this domain...
+    else if (Notification.permission === 'denied') {
+        // ...remain silent.
+        return;
+    }
+};
+notify();
     </script>
 
     
