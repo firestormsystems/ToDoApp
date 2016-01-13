@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0c January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0d January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -993,7 +993,7 @@ function checkCookie() {
        }
     }
 }
-var notify = function (Title_N,Body_N) {
+function notify (Title_N,Body_N) {
     // Check for notification compatibility.
     if (!'Notification' in window) {
         // If the browser version is unsupported, remain silent.
@@ -1035,9 +1035,9 @@ var notify = function (Title_N,Body_N) {
     }
 };
 WelcomeMessageFunction () {
-	var d = new Date();
-	var hours = d.getHours();
-	if (hours > 12){
+	var dc = new Date();
+	var hourse = dc.getHours();
+	if (hourse > 12){
 		WelcomeMessage = "Good Afternoon";
 		var title = "Hi there "+Name+"!";
           	notify(title,WelcomeMessage);
