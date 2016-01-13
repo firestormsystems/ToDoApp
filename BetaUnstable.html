@@ -493,7 +493,7 @@ for (i = 0; i < Times.length; i++) {
            }
            if (e+1 >= 1){
               if (Dates[i] == "Today"){
-            var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
+            	var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
                    $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
               } else {
@@ -943,19 +943,23 @@ function updateClock() {
   var Time = d.toLocaleTimeString();
 if (Name ==null){
   MeetNGreet.innerHTML = "Hello, It's "+Time+" on "+DateDMY+".";
+  RemindersManagerAlerts();
 } else {
   MeetNGreet.innerHTML = "Hello "+Name+", It's "+Time+" on "+DateDMY+".";
+  RemindersManagerAlerts();
 }
 if (Debug==true){
   MeetNGreet.innerHTML = DebugVal;
   Theme = "77890";		
   AAA();
+  RemindersManagerAlerts();
 }
   if (!Lock){
   Theme = DeafultTheme;
     Lock = true;
     checkCookie();
     AAA();
+    RemindersManagerAlerts();
   }
 }
 function AAA (){
@@ -1193,7 +1197,28 @@ function RemindersManager (){
   //<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'> TaskObjs[i] </p></li>
   if (Rows[i].innerHTML=="Deleted"){
 	var element = Rows[i];
-	UL.removeChild(element);
+
+  }
+  if (i +1>=Rows.length){
+  	//space for updating the rows function.
+  }
+  }
+}
+function RemindersManagerAlerts (){
+	//Using GetTask function script for now.
+  var UL = document.getElementById("UL");
+  var Rows = UL.getElementsByClassName("row");
+  //var TaskMesg = Array(0);
+  //var ActReminders = Array(0);
+  for (var i = 0; i < Rows.length; i++){
+  var Reminders = Rows[i].getElementsByClassName("reminder");
+  var Messages = Rows[i].getElementsByClassName("Message");
+  var ActReminders = Reminders[0].innerHTML;
+  var ActMessages = Messages[0].innerHTML;
+  var NewReminder = new Date(ActReminders);
+  var Time = new Date();
+  if (NewReminder.getTime() <= Time.getTime()){
+  	notify (ActMessages,NewReminder);
   }
   if (i +1>=Rows.length){
   	//space for updating the rows function.
@@ -1219,9 +1244,5 @@ function AutoSave(casel,NewInterval) {
 	}
 }
     </script>
-
-    
-    
-    
   </body>
 </html>
