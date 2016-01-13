@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0g-2 January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0f January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -579,7 +579,7 @@ $(document).keypress(function(e) {
          $( "#string-text" ).val("Eample A`4:00pm`Today,Example B`4:01pm`Today");
          KeepOpen = true;
         } else if (str.includes("/Debug")){
-          DebugVal="Debug Active v1.0g-2 January 12, 2016";
+          DebugVal="Debug Active v1.0f January 12, 2016";
           Theme = "77890";
           Debug = !Debug;
        } else if (str.includes("/Clear")){ 
@@ -675,7 +675,7 @@ $(".string-new").click(function(){
 //##---------------------------------------JAN 11 7:46PM
        } else if (str.includes("/Debug")){
        	  Theme = "77890";
-          DebugVal="Debug Active v1.0g-2 January 12, 2016";
+          DebugVal="Debug Active v1.0f January 12, 2016";
           Debug = !Debug;
 //##---------------------------------------
        } else {
@@ -1079,7 +1079,7 @@ function RemindersManager (){
 function AutoSave(casel,NewInterval) {
 	if(casel == 0){
 	//First make sure everything is deleted.
-	//##7:53 Jan 12 RemindersManager();
+	RemindersManager();
 	DebugVal = "AutoSave Functioning"
 	//Now initiate GetTasks(1) to save the cookie in the background.
 	GetTasks(1);
