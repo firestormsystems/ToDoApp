@@ -357,7 +357,7 @@ footer a:hover{
 var Name;
 var Theme;
 var DeafultTheme ="NMS";
-var CustomWelcomeMessage = null;
+//var CustomWelcomeMessage = null;
 var WelcomeMessage = null;
 
 //Themes
@@ -1003,7 +1003,7 @@ var notify = function (Title_N,Body_N) {
     if (Notification.permission === 'default') {
         Notification.requestPermission(function () {
             // ...callback this function once a permission level has been set.
-            notify();
+            notify(Title_N,Body_N);
         });
     }
     // If the user has granted permission for this domain to send notifications...
