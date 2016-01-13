@@ -767,7 +767,6 @@ function GetTasks(casel){
     ActReminders.push(ReminderStr);
     var Msg = Array(0);
     Msg = Rows[i].getElementsByClassName("Message");
-    DebugVal = "Stage 6 "+ Msg[0].innerHTML;
     TaskMesg.push(Msg[0].innerHTML);
     // DebugVal = "Stage 6 " + Msg[0];
   }
@@ -1080,8 +1079,8 @@ function RemindersManager (){
 function AutoSave(casel,NewInterval) {
 	if(casel == 0){
 	//First make sure everything is deleted.
-	RemindersManager();
-	
+	//##7:53 Jan 12 RemindersManager();
+	DebugVal = "AutoSave Functioning"
 	//Now initiate GetTasks(1) to save the cookie in the background.
 	GetTasks(1);
 	} else if (casel == 1){
