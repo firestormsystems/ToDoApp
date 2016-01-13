@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0b January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0c January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -358,7 +358,7 @@ var Name;
 var Theme;
 var DeafultTheme ="NMS";
 //var CustomWelcomeMessage = null;
-var WelcomeMessage = null;
+var WelcomeMessage;
 
 //Themes
 //Japan
@@ -961,25 +961,28 @@ function checkCookie() {
     if (user != "") {
     	if (Alert == "1"){
         alert("Welcome again " + user);
-        if (WelcomeMessage != null
-          ||WelcomeMessage != ""
-          ||WelcomeMessage != "null") {
+        // if (WelcomeMessage != null
+        //   ||WelcomeMessage != ""
+        //   ||WelcomeMessage != "null") {
           	
-          } else {
-          	var title = "Hi there "+user+"!";
-          	notify(title,"WelcomeMessage");
-          }
+        //   } else {
+           	var title = "Hi there "+user+"!";
+           	notify(title,"WelcomeMessage");
+        //   }
         
     	} else if (Alert == "2"){
-        	if (WelcomeMessage != null
-          	||WelcomeMessage != ""
-          	||WelcomeMessage != "null") {
-          	  //WelcomeMessageFunction();
+        	// if (WelcomeMessage != null
+         // 	||WelcomeMessage != ""
+         // 	||WelcomeMessage != "null") {
+         // 	  //WelcomeMessageFunction();
 
-          	} else {
-          		var title = "Hi there "+User+"!";
+         // 	} else {
+          		var title = "Hi there "+user+"!";
           		notify(title,"WelcomeMessage");
-          	}	
+         // 	}	
+    	} else if (Alert == "0"){
+    		        var title = "Hi there "+user+"!";
+          		notify(title,"Notifications Currently disabled");
     	}
       Name = user;
     } else {
