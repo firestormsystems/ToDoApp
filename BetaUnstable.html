@@ -5,7 +5,7 @@
     <meta name="google" value="notranslate">
 
 
-    <title>Todo</title>
+    <title id="HTMLTITLE">Todo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="//codepen.io/assets/reset/reset.css">
@@ -359,7 +359,7 @@ var Theme;
 var DeafultTheme ="NMS";
 var AutoSaveInterval = 5000;
 var AutoSaveEnabled = true;
-var AutoSaveClock = setInterval(function(){ AutoSave() }, AutoSaveInterval);
+var AutoSaveClock = setInterval(function(){ AutoSave(0,0) }, AutoSaveInterval);
 if (!AutoSaveEnabled){
 	clearInterval(AutoSaveClock);
 }
@@ -1092,7 +1092,7 @@ function AutoSave(casel,NewInterval) {
 		
 		clearInterval(AutoSaveClock);
 		AutoSaveInterval = NewInterval;
-		AutoSaveClock = setInterval(function(){ AutoSave() }, AutoSaveInterval);
+		AutoSaveClock = setInterval(function(){ AutoSave(0,0) }, AutoSaveInterval);
 	}
 }
     </script>
