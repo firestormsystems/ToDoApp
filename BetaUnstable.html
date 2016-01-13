@@ -1214,11 +1214,12 @@ function RemindersManagerAlerts (){
   var Reminders = Rows[i].getElementsByClassName("reminder");
   var Messages = Rows[i].getElementsByClassName("Message");
   var ActReminders = Reminders[0].innerHTML;
+  // var ActReminders = Reminders[0].getAttribute("data-reminder");
   var ActMessages = Messages[0].innerHTML;
-  var NewReminder = new Date(ActReminders);
+  // var NewReminder = new Date(ActReminders);
   var Time = new Date();
-  if (NewReminder.getTime() <= Time.getTime()){
-  	notify (ActMessages,NewReminder);
+  if (ActReminders.getTime() <= Time.getTime()){
+  	notify (ActMessages,ActReminders);
   }
   if (i +1>=Rows.length){
   	//space for updating the rows function.
