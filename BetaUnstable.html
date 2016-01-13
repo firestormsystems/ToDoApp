@@ -313,7 +313,7 @@ footer a:hover{
 
   <div id="sheet">
 <div id='Spans'>
-  <p id='MeetNGreet'>v1.0d January 12, 2016</p>
+  <p id='MeetNGreet'>v1.0e January 12, 2016</p>
 </div>
 <body id="body" onload="updateClock(); setInterval('updateClock()', 1000 )">
 <div class='container' id='Container'>
@@ -358,7 +358,7 @@ var Name;
 var Theme;
 var DeafultTheme ="NMS";
 //var CustomWelcomeMessage = null;
-var WelcomeMessage;
+//var WelcomeMessage;
 
 //Themes
 //Japan
@@ -966,8 +966,8 @@ function checkCookie() {
         //   ||WelcomeMessage != "null") {
           	
         //   } else {
-           	var title = "Hi there "+user+"!";
-           	notify(title,"WelcomeMessage");
+           	var titler = "Hi there "+user+"!";
+           	notify(titler,"WelcomeMessage");
         //   }
         
     	} else if (Alert == "2"){
@@ -977,12 +977,12 @@ function checkCookie() {
          // 	  //WelcomeMessageFunction();
 
          // 	} else {
-          		var title = "Hi there "+user+"!";
-          		notify(title,"WelcomeMessage");
+          		var titler = "Hi there "+user+"!";
+          		notify(titler,"WelcomeMessage");
          // 	}	
     	} else if (Alert == "0"){
-    		        var title = "Hi there "+user+"!";
-          		notify(title,"Notifications Currently disabled");
+    		        var titler = "Hi there "+user+"!";
+          		notify(titler,"Notifications Currently disabled");
     	}
       Name = user;
     } else {
@@ -1034,19 +1034,19 @@ function notify (Title_N,Body_N) {
         return;
     }
 };
-WelcomeMessageFunction () {
-	var dc = new Date();
-	var hourse = dc.getHours();
-	if (hourse > 12){
-		WelcomeMessage = "Good Afternoon";
-		var title = "Hi there "+Name+"!";
-          	notify(title,WelcomeMessage);
-	} else {
-		WelcomeMessage = "Good Morning";
-		var title = "Hi there "+Name+"!";
-          	notify(title,WelcomeMessage);
-	}
-}
+// WelcomeMessageFunction () {
+// 	var dc = new Date();
+// 	var hourse = dc.getHours();
+// 	if (hourse > 12){
+// 		WelcomeMessage = "Good Afternoon";
+// 		var title = "Hi there "+Name+"!";
+//           	notify(title,WelcomeMessage);
+// 	} else {
+// 		WelcomeMessage = "Good Morning";
+// 		var title = "Hi there "+Name+"!";
+//           	notify(title,WelcomeMessage);
+// 	}
+// }
 
     </script>
 
