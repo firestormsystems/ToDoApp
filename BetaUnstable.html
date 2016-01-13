@@ -358,20 +358,8 @@ var Name;
 var Theme;
 var DeafultTheme ="NMS";
 var CustomWelcomeMessage = null;
-var WelcomeMessage;
-WelcomeMessageFunction () {
-	var d = new Date();
-	var hours = d.getHours();
-	if (hours > 12){
-		WelcomeMessage = "Good Afternoon";
-		var title = "Hi there "+Name+"!";
-          	notify(title,WelcomeMessage);
-	} else {
-		WelcomeMessage = "Good Morning";
-		var title = "Hi there "+Name+"!";
-          	notify(title,WelcomeMessage);
-	}
-}
+var WelcomeMessage = null;
+
 //Themes
 //Japan
 //NMS
@@ -1043,6 +1031,19 @@ var notify = function (Title_N,Body_N) {
         return;
     }
 };
+WelcomeMessageFunction () {
+	var d = new Date();
+	var hours = d.getHours();
+	if (hours > 12){
+		WelcomeMessage = "Good Afternoon";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
+	} else {
+		WelcomeMessage = "Good Morning";
+		var title = "Hi there "+Name+"!";
+          	notify(title,WelcomeMessage);
+	}
+}
 
     </script>
 
