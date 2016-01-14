@@ -1197,7 +1197,7 @@ function RemindersManager (){
   //<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'> TaskObjs[i] </p></li>
   if (Rows[i].innerHTML=="Deleted"){
 	var element = Rows[i];
-
+        UL.removeChild(element); 		//##-----------Jan 13,2016
   }
   if (i +1>=Rows.length){
   	//space for updating the rows function.
