@@ -944,23 +944,23 @@ function updateClock() {
   var Time = d.toLocaleTimeString();
 if (Name ==null){
   MeetNGreet.innerHTML = "Hello, It's "+Time+" on "+DateDMY+".";
-  RemindersManagerAlerts();
+  //RemindersManagerAlerts();
 } else {
   MeetNGreet.innerHTML = "Hello "+Name+", It's "+Time+" on "+DateDMY+".";
-  RemindersManagerAlerts();
+  //RemindersManagerAlerts();
 }
 if (Debug==true){
   MeetNGreet.innerHTML = DebugVal;
   Theme = "77890";		
   AAA();
-  RemindersManagerAlerts();
+  //RemindersManagerAlerts();
 }
   if (!Lock){
   Theme = DeafultTheme;
     Lock = true;
     checkCookie();
     AAA();
-    RemindersManagerAlerts();
+    //RemindersManagerAlerts();
   }
 }
 function AAA (){
