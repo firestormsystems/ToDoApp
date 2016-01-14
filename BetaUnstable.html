@@ -549,6 +549,7 @@ $(document).on('click', '.remove', function() {
   $(this).parent().slideUp();
   $(this).parent().innerHTML = "Deleted";
   //Remove this item from the UL element.
+  $(this).parent.removeChild(this);
   // Instead of Running Reminders Manager Let's Just Run the Code. --> RemindersManager();
   
 	 //Using GetTask function script for now.
