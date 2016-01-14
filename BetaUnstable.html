@@ -1226,90 +1226,91 @@ function RemindersManagerAlerts (){
   }
   }
 }
-function ConvertToRealPass (Time,Message,Dates) {
+//##-------------------------------------------------------------------Deactivated on Jan 13, 2016
+// function ConvertToRealPass (Time,Message,Dates) {
   
-  var Times = Array(Time.length);
-  var HMSARRAY = Array(Time.length);
-               var d = new Date();
-             var Curr_Year = d.getFullYear();
-             var Curr_Month= d.getMonth();
-             var Curr_Day = d.getDate();
-  Times = Time;
-  cars = Times.length;
-for (i = 0; i < Times.length; i++) { 
-    if (Times[i].includes("pm")){
-       //Times[i].replace("pm","");
-       var HMS = Times[i].split(":");
+//   var Times = Array(Time.length);
+//   var HMSARRAY = Array(Time.length);
+//               var d = new Date();
+//              var Curr_Year = d.getFullYear();
+//              var Curr_Month= d.getMonth();
+//              var Curr_Day = d.getDate();
+//   Times = Time;
+//   cars = Times.length;
+// for (i = 0; i < Times.length; i++) { 
+//     if (Times[i].includes("pm")){
+//       //Times[i].replace("pm","");
+//       var HMS = Times[i].split(":");
       
-       var HMSS = HMS[1].replace("pm","");
-       HMS[1] = HMSS;
+//       var HMSS = HMS[1].replace("pm","");
+//       HMS[1] = HMSS;
                              
-       for (var e=0; e<1; e++){
-           if (HMS[e].includes("0",0)) {
+//       for (var e=0; e<1; e++){
+//            if (HMS[e].includes("0",0)) {
              
-             var HMS_S = HMS[e].replace("0","");
-             HMS[e] = HMS_S;
-             var HMS_I = parseInt(HMS[e]);
-             HMS[e] = HMS_I;
+//              var HMS_S = HMS[e].replace("0","");
+//              HMS[e] = HMS_S;
+//              var HMS_I = parseInt(HMS[e]);
+//              HMS[e] = HMS_I;
              
-           } else {
-             var HMS_I = parseInt(HMS[e]);
-             HMS[e] = HMS_I;
+//            } else {
+//              var HMS_I = parseInt(HMS[e]);
+//              HMS[e] = HMS_I;
              
-           }
-           if (e+1 >= 1){
-              if (Dates[i] == "Today"){
-            	var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
-                 //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-              } else {
-                var DMY = Dates[i].split("/");
-                var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
-                 //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-              }
-           }
-       }
-    } else {
-       if (Times[i].includes("am")) {
-       //Times[i].replace("am","");
-       var HMS = Times[i].split(":");
-       var HMSS = HMS[1].replace("am","");
-       HMS[1] = HMSS;
-       for (var o=0; o<1; o++){
-           if (HMS[o].includes("0",0)) {
+//            }
+//            if (e+1 >= 1){
+//               if (Dates[i] == "Today"){
+//             	var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
+//                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//                    $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//               } else {
+//                 var DMY = Dates[i].split("/");
+//                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
+//                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//                    $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//               }
+//            }
+//       }
+//     } else {
+//       if (Times[i].includes("am")) {
+//       //Times[i].replace("am","");
+//       var HMS = Times[i].split(":");
+//       var HMSS = HMS[1].replace("am","");
+//       HMS[1] = HMSS;
+//       for (var o=0; o<1; o++){
+//            if (HMS[o].includes("0",0)) {
              
-             var HMS_S = HMS[o].replace("0","");
-             HMS[o] = HMS_S;
-             var HMS_I = parseInt(HMS[o]);
-             HMS[o] = HMS_S;
+//              var HMS_S = HMS[o].replace("0","");
+//              HMS[o] = HMS_S;
+//              var HMS_I = parseInt(HMS[o]);
+//              HMS[o] = HMS_S;
              
-           } else {
-             var HMS_I = parseInt(HMS[o]);
-             HMS[o] = HMS_I;
+//            } else {
+//              var HMS_I = parseInt(HMS[o]);
+//              HMS[o] = HMS_I;
              
-           }
-           if (o+1 >=1){
-             if (Dates[i] == "Today"){
-            var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
-                 //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-              } else {
-                var DMY = Dates[i].split("/");
-                var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
-                 //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-              }
+//            }
+//            if (o+1 >=1){
+//              if (Dates[i] == "Today"){
+//             var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
+//                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//                    $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//               } else {
+//                 var DMY = Dates[i].split("/");
+//                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
+//                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//                    $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+//               }
              
-           }
-       }
-       }
-//     }
+//            }
+//       }
+//       }
+// //     }
     
-}
+// }
     
-}
-}
+// }
+// }
 function AutoSave(casel,NewInterval) {
 	if(casel == 0){
 	//First make sure everything is deleted.
