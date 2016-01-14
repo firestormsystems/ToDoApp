@@ -1204,28 +1204,28 @@ function RemindersManager (){
   }
   }
 }
-function RemindersManagerAlerts (){
-	//Using GetTask function script for now.
-  var UL = document.getElementById("UL");
-  var Rows = UL.getElementsByClassName("row");
-  //var TaskMesg = Array(0);
-  //var ActReminders = Array(0);
-  for (var i = 0; i < Rows.length; i++){
-  var Reminders = Rows[i].getElementsByClassName("reminder");
-  var Messages = Rows[i].getElementsByClassName("Message");
-  var ActReminders = Reminders[0].innerHTML;
-  // var ActReminders = Reminders[0].getAttribute("data-reminder");
-  var ActMessages = Messages[0].innerHTML;
-  // var NewReminder = new Date(ActReminders);
-  var Time = new Date();
-  if (ActReminders.getTime() <= Time.getTime()){
-  	notify (ActMessages,ActReminders);
-  }
-  if (i +1>=Rows.length){
-  	//space for updating the rows function.
-  }
-  }
-}
+// function RemindersManagerAlerts (){ ##-------------------------------Deactivated on Jan 13, 2016 for prototyping
+// 	//Using GetTask function script for now.
+//   var UL = document.getElementById("UL");
+//   var Rows = UL.getElementsByClassName("row");
+//   //var TaskMesg = Array(0);
+//   //var ActReminders = Array(0);
+//   for (var i = 0; i < Rows.length; i++){
+//   var Reminders = Rows[i].getElementsByClassName("reminder");
+//   var Messages = Rows[i].getElementsByClassName("Message");
+//   var ActReminders = Reminders[0].innerHTML;
+//   // var ActReminders = Reminders[0].getAttribute("data-reminder");
+//   var ActMessages = Messages[0].innerHTML;
+//   // var NewReminder = new Date(ActReminders);
+//   var Time = new Date();
+//   if (ActReminders.getTime() <= Time.getTime()){
+//   	notify (ActMessages,ActReminders);
+//   }
+//   if (i +1>=Rows.length){
+//   	//space for updating the rows function.
+//   }
+//   }
+// }
 //##-------------------------------------------------------------------Deactivated on Jan 13, 2016
 // function ConvertToRealPass (Time,Message,Dates) {
   
