@@ -550,23 +550,24 @@ for (i = 0; i < Times.length; i++) {
 $(document).on('click', '.remove', function() {
   $(this).parent().slideUp();
   $(this).parent().innerHTML = "Deleted";
+  DebugVal =  $(this).parent().innerHTML;
   //Remove this item from the UL element.
   //$(this).parent.removeChild(this); ---- Code is being bugy Removed this.
   // Instead of Running Reminders Manager Let's Just Run the Code. --> RemindersManager();
   
 	 //Using GetTask function script for now.
-  var UL = document.getElementById("UL");                        //----> Code is still being bugy.
-  var Rows = UL.getElementsByClassName("row");
-  for (var i = 0; i < Rows.length; i++){
-  if (Rows[i].innerHTML=="Deleted"){
-	//## Redundant: var element = Rows[i];
-	UL.removeChild(Rows[i]);
-  }
-  if (i +1>=Rows.length){
- // 	//AAAAAANNNNNNNNNNDDDDDD let's do it again...
-  	RemindersManager();    //Let's just run the main.
- }
-} //--- Forgot a bracket!!
+//   var UL = document.getElementById("UL");                        //----> Code is still being bugy.
+//   var Rows = UL.getElementsByClassName("row");
+//   for (var i = 0; i < Rows.length; i++){
+//   if (Rows[i].innerHTML=="Deleted"){
+// 	//## Redundant: var element = Rows[i];
+// 	UL.removeChild(Rows[i]);
+//   }
+//   if (i +1>=Rows.length){
+//  // 	//AAAAAANNNNNNNNNNDDDDDD let's do it again...
+//   	RemindersManager();    //Let's just run the main.
+//  }
+// } //--- Forgot a bracket!!
   
 });
 $(document).on('click', '.completed', function() {
@@ -1328,7 +1329,7 @@ function AutoSave(casel,NewInterval) {
 	if(casel == 0){
 	//First make sure everything is deleted.
 	RemindersManager();
-	DebugVal = "AutoSave Functioning"
+	//DebugVal = "AutoSave Functioning"
 	//Now initiate GetTasks(1) to save the cookie in the background.
 	GetTasks(1);
 	} else if (casel == 1){
