@@ -16,6 +16,7 @@
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
 <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+<!--//RemindersManagerAlerts-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/VezdRJ.js"></script>
 <!--//favicon manip-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/Ywrvvd.js"></script>
@@ -550,7 +551,7 @@ $(document).on('click', '.remove', function() {
   $(this).parent().slideUp();
   $(this).parent().innerHTML = "Deleted";
   //Remove this item from the UL element.
-  $(this).parent.removeChild(this);
+  //$(this).parent.removeChild(this); ---- Code is being bugy Removed this.
   // Instead of Running Reminders Manager Let's Just Run the Code. --> RemindersManager();
   
 	 //Using GetTask function script for now.
