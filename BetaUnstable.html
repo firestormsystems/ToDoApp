@@ -549,7 +549,8 @@ for (i = 0; i < Times.length; i++) {
 }
 $(document).on('click', '.remove', function() {
   //$(this).parent().slideUp();
-  $(this).parent().innerHTML = "Deleted";
+ // $(this).parent().innerHTML = "Deleted";
+  $(this).parent().val("done");
   //DebugVal =  $(this).parent().innerHTML;
   //Remove this item from the UL element.
   //$(this).parent.removeChild(this); ---- Code is being bugy Removed this.
