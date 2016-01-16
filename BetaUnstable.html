@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="google" value="notranslate">
+    
     <div id="icon">
 	<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>
     </div>
@@ -18,6 +19,8 @@
 <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/VezdRJ.js"></script>
+<!--//favicon manip-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/Ywrvvd.js"></script>
 
         <style>
 *,
@@ -359,6 +362,7 @@ var Theme;
 var DeafultTheme ="NMS";
 var AutoSaveInterval = 5000;
 var AutoSaveEnabled = true;
+var AlertsToAnn = 0;
 var AutoSaveClock = setInterval(function(){ AutoSave(0,0) }, AutoSaveInterval);
 if (!AutoSaveEnabled){
 	clearInterval(AutoSaveClock);
@@ -1154,7 +1158,8 @@ function notify (Title_N,Body_N) {
     }
     // If the user has granted permission for this domain to send notifications...
     else if (Notification.permission === 'granted') {
-    	   document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/iKOqW2Z.png"/>';
+           AlertsToAnn += 1;
+    	   Tinycon.setBubble(AlertsToAnn);
         var n = new Notification(
                     Title_N,
                     {
@@ -1165,12 +1170,14 @@ function notify (Title_N,Body_N) {
                 );
         // Remove the notification from Notification Center when clicked.
         n.onclick = function () {
-            document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>';
+        	AlertsToAnn = 0;
+           Tinycon.setBubble(AlertsToAnn);
             this.close();
         };
         // Callback function when the notification is closed.
         n.onclose = function () {
-            document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>';
+        	AlertsToAnn = 0;
+           Tinycon.setBubble(AlertsToAnn);
             console.log('Notification closed');
         };
     }
