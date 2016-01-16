@@ -548,7 +548,7 @@ for (i = 0; i < Times.length; i++) {
 }
 }
 $(document).on('click', '.remove', function() {
-  //$(this).parent().slideUp();
+  $(this).parent().slideUp();
  // $(this).parent().innerHTML = "Deleted";
   $(this).parent().val("2");
   RemindersManager();
