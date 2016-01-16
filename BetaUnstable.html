@@ -555,17 +555,17 @@ $(document).on('click', '.remove', function() {
   // Instead of Running Reminders Manager Let's Just Run the Code. --> RemindersManager();
   
 	 //Using GetTask function script for now.
-  var UL = document.getElementById("UL");
-  var Rows = UL.getElementsByClassName("row");
-  for (var i = 0; i < Rows.length; i++){
-  if (Rows[i].innerHTML=="Deleted"){
-	//## Redundant: var element = Rows[i];
-	UL.removeChild(Rows[i]);
-  }
-  if (i +1>=Rows.length){
-  	//AAAAAANNNNNNNNNNDDDDDD let's do it again...
-  	RemindersManager();
-  }
+ // var UL = document.getElementById("UL");                        ----> Code is still being bugy.
+ // var Rows = UL.getElementsByClassName("row");
+ // for (var i = 0; i < Rows.length; i++){
+ // if (Rows[i].innerHTML=="Deleted"){
+	// //## Redundant: var element = Rows[i];
+	// UL.removeChild(Rows[i]);
+ // }
+ // if (i +1>=Rows.length){
+ // 	//AAAAAANNNNNNNNNNDDDDDD let's do it again...
+  	RemindersManager();    //Let's just run the main.
+ // }
   }
   
 });
