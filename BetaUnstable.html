@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="google" value="notranslate">
-    
+    <div id="icon">
 	<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>
-	
+    </div>
 	
 
     <title id="HTMLTITLE">Todo</title>
@@ -1154,6 +1154,7 @@ function notify (Title_N,Body_N) {
     }
     // If the user has granted permission for this domain to send notifications...
     else if (Notification.permission === 'granted') {
+    	   document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/iKOqW2Z.png"/>';
         var n = new Notification(
                     Title_N,
                     {
@@ -1164,10 +1165,12 @@ function notify (Title_N,Body_N) {
                 );
         // Remove the notification from Notification Center when clicked.
         n.onclick = function () {
+            document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>';
             this.close();
         };
         // Callback function when the notification is closed.
         n.onclose = function () {
+            document.getElementById("icon").innerHTML = '<link rel="icon" type="image/png" href="http://i.imgur.com/rszrKX6.png"/>';
             console.log('Notification closed');
         };
     }
