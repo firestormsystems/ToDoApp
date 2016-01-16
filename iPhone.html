@@ -1624,6 +1624,17 @@ function AutoSave(casel,NewInterval) {
 		AutoSaveClock = setInterval(function(){ AutoSave(0,0) }, AutoSaveInterval);
 	}
 }
+window.onorientationchange = readDeviceOrientation;
+function readDeviceOrientation() {
+    var OverLay= document.getElementById("sheet");
+    if (Math.abs(window.orientation) === 90) {
+     $(OverLay).addClass("PLS");
+     $(OverLay).removeClass("Opacity0");
+    } else {
+     $(OverLay).addClass("Opacity0");
+     $(OverLay).removeClass("PLS");
+    }
+}
     </script>
   </body>
 </html>
