@@ -613,12 +613,24 @@ $(".string").click(function(){
                      
 // Pressing enter
 $(document).keypress(function(e) {
+	  if (e.which == iShortCutControlKey) bIsControlKeyActived = false;
+}).keydown(function(e) {
+    if (e.which == iShortCutControlKey) bIsControlKeyActived = true;
+    if (bIsControlKeyActived == true) {
+        jQuery.each(arrShortCut, function(i) {
+            if (arrShortCut[i].key == e.which) {
+                execShortCut(arrShortCut[i].fx);
+                return;
+            }
+        });
+    }
     var str = $( "#todo-text" ).val();
     if(e.which== 16) {
     $(".new-string").slideToggle();
     $(".console-help").slideToggle();
     $("#string-text").focus();
   }
+
     if(e.which == 13 && str != "" && str != null ) {
        $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
        $( "#todo-text" ).val("");
