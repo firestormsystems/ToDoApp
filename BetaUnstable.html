@@ -667,6 +667,9 @@ $(document).keypress(function(e) {
 	 Weather(str);
        } else if (str.includes("/Timer")){
 	 Timer(str);
+       } else if (str.includes("/Spotify")){
+       	var newstring  = str.replace("/Spotify","");
+	spotify(newstring);
        } else if (str.includes("/DisableAlerts")){
          setCookie("Alerts",0,1000);
        } else if (str.includes("/Tutorial")){
@@ -750,6 +753,13 @@ $(".string-new").click(function(){
           DebugVal="Debug Active v1.0i January 12, 2016";
           Debug = !Debug;
 //##---------------------------------------
+       } else if (str.includes("/Weather")){
+	 Weather(str);
+       } else if (str.includes("/Timer")){
+	 Timer(str);
+       } else if (str.includes("/Spotify")){
+       	var newstring  = str.replace("/Spotify","");
+	spotify(newstring);
        } else {
         Terminal(str);
        }
