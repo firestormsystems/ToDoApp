@@ -270,6 +270,13 @@ background: #34495e;
   overflow:scroll;
   position: fixed;
 }
+.dReamTheme {
+  background-image: url("http://orig09.deviantart.net/9fc4/f/2015/305/1/e/1ec0e352998cdd51882ed4c1ad1850d4-d9f5e36.jpg");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
 #Spans {
   font-size: 16px;
 }
@@ -1009,9 +1016,24 @@ switch (Theme){
        document.getElementById("lp").style.color = "black";
   break;
 //##---------------------------------------
+//##---------------------------------------JAN 16 7:46PM
+  case "dReam":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   $(sheet).addClass("dReamTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "black";
+       document.getElementById("ll").style.color = "black";
+       document.getElementById("lo").style.color = "black";
+       document.getElementById("lp").style.color = "black";
+  break;
+//##---------------------------------------
   case "0":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "#34495e";
@@ -1024,6 +1046,7 @@ switch (Theme){
  case "1":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
    document.getElementById("title").style.background = "white";
    document.getElementById("title").style.color = "black";
    document.getElementById("body").style.background = "red";
@@ -1036,6 +1059,7 @@ switch (Theme){
 case "2":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
    document.getElementById("title").style.background = "darkgrey";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "black";
@@ -1058,6 +1082,7 @@ case "Japan":
        document.getElementById("lp").style.color = "white";
    $(sheet).addClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
    break;
 case "NMS":
    document.getElementById("title").style.background = "#db441e";
@@ -1072,6 +1097,7 @@ case "NMS":
     
    $(sheet).addClass("NMSTheme");
    $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("dReamTheme");
    break;
   
 }
