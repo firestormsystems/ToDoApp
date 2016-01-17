@@ -610,9 +610,7 @@ $(".string").click(function(){
           $(".console-help").slideToggle();
   $("#string-text").focus();
 });
-                     
-// Pressing enter
-$(document).keypress(function(e) {
+ $(document).keyup(function(e) {     
 	  if (e.which == iShortCutControlKey) bIsControlKeyActived = false;
 }).keydown(function(e) {
     if (e.which == iShortCutControlKey) bIsControlKeyActived = true;
@@ -624,6 +622,10 @@ $(document).keypress(function(e) {
             }
         });
     }
+}
+// Pressing enter
+$(document).keypress(function(e) {
+
     var str = $( "#todo-text" ).val();
     //if(e.which== 16) {
     //$(".new-string").slideToggle();
