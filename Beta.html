@@ -20,6 +20,17 @@
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/VezdRJ.js"></script>
 <!--//favicon manip-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/Ywrvvd.js"></script>
+<!--//Weather-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/rxGNKP.js"></script>
+<!--//Timer-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/EPwewV.js"></script>
+<!--//Spotify-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/KVXxOP.js"></script>
+<!--//Hide-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/rxGqLW.js"></script>
+
+
+
 
         <style>
 *,
@@ -257,6 +268,20 @@ background: #34495e;
 }
 .NMSTheme {
   background-image: url("http://u.cubeupload.com/Syzygos/NMSConceptArtWallpap.png");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
+.dReamTheme {
+  background-image: url("http://orig09.deviantart.net/9fc4/f/2015/305/1/e/1ec0e352998cdd51882ed4c1ad1850d4-d9f5e36.jpg");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
+.GustTheme {
+  background-image: url("http://i.imgur.com/v0RKOfM.jpg");
   background-repeat: no-repeat;
   background-attachment:scroll;
   overflow:scroll;
@@ -581,15 +606,27 @@ $(".string").click(function(){
           $(".console-help").slideToggle();
   $("#string-text").focus();
 });
-                     
+$(document).keyup(function(e) {
+    if (e.which == iShortCutControlKey) bIsControlKeyActived = false;
+}).keydown(function(e) {
+    if (e.which == iShortCutControlKey) bIsControlKeyActived = true;
+    if (bIsControlKeyActived == true) {
+        jQuery.each(arrShortCut, function(i) {
+            if (arrShortCut[i].key == e.which) {
+                execShortCut(arrShortCut[i].fx);
+                return;
+            }
+        });
+    }
+});
 // Pressing enter
 $(document).keypress(function(e) {
     var str = $( "#todo-text" ).val();
-    if(e.which== 16) {
-    $(".new-string").slideToggle();
-    $(".console-help").slideToggle();
-    $("#string-text").focus();
-  }
+    //if(e.which== 16) {
+    //$(".new-string").slideToggle();
+    //$(".console-help").slideToggle();
+    //$("#string-text").focus();
+    //}
     if(e.which == 13 && str != "" && str != null ) {
        $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
        $( "#todo-text" ).val("");
@@ -654,9 +691,17 @@ $(document).keypress(function(e) {
          setCookie("username",NewString[2],NewString[3]);
        } else if (str.includes("/DisableAlerts")){
          setCookie("Alerts",0,1000);
+       } else if (str.includes("/Weather")){
+	 Weather(str);
+       } else if (str.includes("/Timer")){
+	 Timer(str);
+       } else if (str.includes("/Spotify")){
+       	var newstring  = str.replace("/Spotify","");
+	spotify(newstring);
+       } else if (str.includes("/Hide")){
+         Hide();
        } else if (str.includes("/DisableAlerts")){
          setCookie("Alerts",0,1000);
-           "Weather"
        } else if (str.includes("/Tutorial")){
          var NewString =  str.replace("/Tutorial","");
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
@@ -738,6 +783,15 @@ $(".string-new").click(function(){
           DebugVal="Debug Active v1.0i January 12, 2016";
           Debug = !Debug;
 //##---------------------------------------
+       } else if (str.includes("/Weather")){
+	 Weather(str);
+       } else if (str.includes("/Timer")){
+	 Timer(str);
+       } else if (str.includes("/Spotify")){
+       	var newstring  = str.replace("/Spotify","");
+	spotify(newstring);
+       } else if (str.includes("/Hide")){
+         Hide();
        } else {
         Terminal(str);
        }
@@ -975,6 +1029,37 @@ switch (Theme){
   case "77890":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "black";
+       document.getElementById("ll").style.color = "black";
+       document.getElementById("lo").style.color = "black";
+       document.getElementById("lp").style.color = "black";
+  break;
+//##---------------------------------------
+//##---------------------------------------JAN 16 7:46PM
+  case "dReam":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   $(sheet).addClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+//##---------------------------------------
+//##---------------------------------------JAN 16 7:46PM
+  case "Gust":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   $(sheet).addClass("GustTheme");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "white";
@@ -987,6 +1072,8 @@ switch (Theme){
   case "0":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "#34495e";
@@ -999,6 +1086,8 @@ switch (Theme){
  case "1":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
    document.getElementById("title").style.background = "white";
    document.getElementById("title").style.color = "black";
    document.getElementById("body").style.background = "red";
@@ -1011,6 +1100,8 @@ switch (Theme){
 case "2":
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
    document.getElementById("title").style.background = "darkgrey";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "black";
@@ -1031,8 +1122,10 @@ case "Japan":
        document.getElementById("ll").style.color = "white";
        document.getElementById("lo").style.color = "white";
        document.getElementById("lp").style.color = "white";
+   $(sheet).removeClass("GustTheme");
    $(sheet).addClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
    break;
 case "NMS":
    document.getElementById("title").style.background = "#db441e";
@@ -1045,8 +1138,10 @@ case "NMS":
        document.getElementById("lo").style.color = "#db441e";
        document.getElementById("lp").style.color = "#db441e";
     
+   $(sheet).removeClass("GustTheme");
    $(sheet).addClass("NMSTheme");
    $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("dReamTheme");
    break;
   
 }
