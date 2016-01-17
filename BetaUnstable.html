@@ -26,6 +26,9 @@
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/EPwewV.js"></script>
 <!--//Spotify-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/KVXxOP.js"></script>
+<!--//Hide-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/rxGqLW.js"></script>
+
 
 
 
@@ -687,6 +690,8 @@ $(document).keypress(function(e) {
        } else if (str.includes("/Spotify")){
        	var newstring  = str.replace("/Spotify","");
 	spotify(newstring);
+       } else if (str.includes("/Hide")){
+         Hide();
        } else if (str.includes("/DisableAlerts")){
          setCookie("Alerts",0,1000);
        } else if (str.includes("/Tutorial")){
@@ -777,6 +782,8 @@ $(".string-new").click(function(){
        } else if (str.includes("/Spotify")){
        	var newstring  = str.replace("/Spotify","");
 	spotify(newstring);
+       } else if (str.includes("/Hide")){
+         Hide();
        } else {
         Terminal(str);
        }
