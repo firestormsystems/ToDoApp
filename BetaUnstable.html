@@ -610,8 +610,8 @@ $(".string").click(function(){
           $(".console-help").slideToggle();
   $("#string-text").focus();
 });
- $(document).keyup(function(e) {     
-	  if (e.which == iShortCutControlKey) bIsControlKeyActived = false;
+$(document).keyup(function(e) {
+    if (e.which == iShortCutControlKey) bIsControlKeyActived = false;
 }).keydown(function(e) {
     if (e.which == iShortCutControlKey) bIsControlKeyActived = true;
     if (bIsControlKeyActived == true) {
@@ -622,7 +622,7 @@ $(".string").click(function(){
             }
         });
     }
-}
+});
 // Pressing enter
 $(document).keypress(function(e) {
 
