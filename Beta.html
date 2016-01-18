@@ -287,6 +287,13 @@ background: #34495e;
   overflow:scroll;
   position: fixed;
 }
+.MoonTheme {
+  background-image: url("http://i.imgur.com/N3YmkDz.jpg");
+  background-repeat: no-repeat;
+  background-attachment:scroll;
+  overflow:scroll;
+  position: fixed;
+}
 #Spans {
   font-size: 16px;
 }
@@ -1036,6 +1043,7 @@ switch (Theme){
    $(sheet).removeClass("NMSTheme");
    $(sheet).removeClass("dReamTheme");
    $(sheet).removeClass("GustTheme");
+      $(sheet).removeClass("Moon");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "white";
@@ -1051,6 +1059,23 @@ switch (Theme){
    $(sheet).removeClass("NMSTheme");
    $(sheet).addClass("dReamTheme");
    $(sheet).removeClass("GustTheme");
+      $(sheet).removeClass("Moon");
+   document.getElementById("title").style.background = "#3498db";
+   document.getElementById("title").style.color = "white";
+   document.getElementById("body").style.background = "white";
+   document.getElementById("Spans").style.color = "white";
+       document.getElementById("ll").style.color = "white";
+       document.getElementById("lo").style.color = "white";
+       document.getElementById("lp").style.color = "white";
+  break;
+//##---------------------------------------
+//##---------------------------------------JAN 16 7:46PM
+  case "Moon":
+   $(sheet).removeClass("JapanTheme");
+   $(sheet).removeClass("NMSTheme");
+   $(sheet).removeClass("dReamTheme");
+   $(sheet).removeClass("GustTheme");
+   $(sheet).addClass("MoonTheme");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "white";
@@ -1065,6 +1090,7 @@ switch (Theme){
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
    $(sheet).addClass("GustTheme");
+      $(sheet).removeClass("Moon");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "white";
@@ -1079,6 +1105,7 @@ switch (Theme){
    $(sheet).removeClass("NMSTheme");
    $(sheet).removeClass("dReamTheme");
    $(sheet).removeClass("GustTheme");
+      $(sheet).removeClass("Moon");
    document.getElementById("title").style.background = "#3498db";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "#34495e";
@@ -1093,6 +1120,7 @@ switch (Theme){
    $(sheet).removeClass("NMSTheme");
    $(sheet).removeClass("dReamTheme");
    $(sheet).removeClass("GustTheme");
+      $(sheet).removeClass("Moon");
    document.getElementById("title").style.background = "white";
    document.getElementById("title").style.color = "black";
    document.getElementById("body").style.background = "red";
@@ -1107,6 +1135,7 @@ case "2":
    $(sheet).removeClass("NMSTheme");
    $(sheet).removeClass("dReamTheme");
    $(sheet).removeClass("GustTheme");
+      $(sheet).removeClass("Moon");
    document.getElementById("title").style.background = "darkgrey";
    document.getElementById("title").style.color = "white";
    document.getElementById("body").style.background = "black";
@@ -1131,6 +1160,7 @@ case "Japan":
    $(sheet).addClass("JapanTheme");
    $(sheet).removeClass("NMSTheme");
    $(sheet).removeClass("dReamTheme");
+      $(sheet).removeClass("Moon");
    break;
 case "NMS":
    document.getElementById("title").style.background = "#db441e";
@@ -1147,6 +1177,7 @@ case "NMS":
    $(sheet).addClass("NMSTheme");
    $(sheet).removeClass("JapanTheme");
    $(sheet).removeClass("dReamTheme");
+      $(sheet).removeClass("Moon");
    break;
   
 }
