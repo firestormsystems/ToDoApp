@@ -718,6 +718,8 @@ $(document).keypress(function(e) {
 	spotify(newstring);
        } else if (str.includes("/Hide")){
          Hide();
+       } else if (str.includes("/Prefrences")){ 
+          PrefrencesF();
        } else if (str.includes("/Tutorial")){
          var NewString =  str.replace("/Tutorial","");
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
@@ -810,6 +812,8 @@ $(".string-new").click(function(){
 	spotify(newstring);
        } else if (str.includes("/Hide")){
          Hide();
+       } else if (str.includes("/Prefrences")){ 
+          PrefrencesF();
        } else {
         Terminal(str);
        }
