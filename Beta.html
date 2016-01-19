@@ -12,10 +12,15 @@
     
     <link rel="stylesheet" href="//codepen.io/assets/reset/reset.css">
 
-    <link rel='stylesheet prefetch' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <!--<link rel='stylesheet prefetch' href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>-->
 <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
 <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href='http://daneden.github.io/animate.css/animate.min.css'>
+<link rel='stylesheet prefetch' href='http://codepen.io/LLIV/pen/qbVrrO.css'>
+
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <!--//RemindersManagerAlerts-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/VezdRJ.js"></script>
 <!--//favicon manip-->
@@ -28,6 +33,7 @@
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/KVXxOP.js"></script>
 <!--//Hide-->
 <script type="text/javascript" src="http://codepen.io/LLIV/pen/rxGqLW.js"></script>
+
 
 
 
@@ -341,10 +347,10 @@ footer a:hover{
   /*text-align:left;*/
 }
 </style>
+<!--//Prefrences-->
+<script type="text/javascript" src="http://codepen.io/LLIV/pen/qbVrrO.js"></script>
   </head>
-
   <body>
-
   <div id="sheet">
 <div id='Spans'>
   <p id='MeetNGreet'>v1.0i January 12, 2016</p>
@@ -373,6 +379,7 @@ footer a:hover{
     <input id='string-text' value='/Example'>
   </div>
   <ul id='UL'></ul>
+  <ul id='Prefrences'></ul>
 </div>
 <footer id=#foot>
 <footer>
@@ -384,8 +391,7 @@ footer a:hover{
 <div id="space"/>
 </div>
     
-<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+
 
         <script>
 var yourSound = new Audio("http://www.oringz.com/oringz-uploads/sounds-837-victory.mp3");
@@ -449,7 +455,7 @@ for (i=0;i<TaskObjs.length;){
     
     i++;
   } else {
-   $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("ul");
+   $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ TaskObjs[i] +"</p></li>" ).fadeIn().appendTo("#UL");
   //  if (i+1 >= TaskObjs.length){
 	 //ConvertToReal(Message,Text,Dates);
   //  }
@@ -529,12 +535,12 @@ for (i = 0; i < Times.length; i++) {
               if (Dates[i] == "Today"){
             	var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("#UL");
               } else {
                 var DMY = Dates[i].split("/");
                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("#UL");
               }
            }
        }
@@ -561,12 +567,12 @@ for (i = 0; i < Times.length; i++) {
              if (Dates[i] == "Today"){
             var NewReminder = new Date(Curr_Year, Curr_Month, Curr_Day, HMS[0], HMS[1], 0);
                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("#UL");
               } else {
                 var DMY = Dates[i].split("/");
                 var NewReminder = new Date(DMY[2], DMY[1], DMY[0], HMS[0], HMS[1], 0);
                  //$( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
-                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("ul");
+                   $( "<li class='row'><a class='snooze' href='#'><i class='fa fa-clock-o'></i><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><span class='Message'>"+ Message[i] +"</span><span data-reminder='"+Times[i]+"`"+Dates[i]+"' class='reminder'>"+NewReminder+"</span></li>" ).fadeIn().appendTo("#UL");
               }
              
            }
@@ -606,7 +612,7 @@ $(document).on('click', '.remove', function() {
 $(document).on('click', '.completed', function() {
    $(this).parent().toggleClass("done" );
 });
-$( "ul" ).sortable();
+$( "#UL" ).sortable();
 $(".add").click(function(){
    $(".new-task").slideToggle();
   $("#todo-text").focus();
@@ -638,7 +644,7 @@ $(document).keypress(function(e) {
     //$("#string-text").focus();
     //}
     if(e.which == 13 && str != "" && str != null ) {
-       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("#UL");
        $( "#todo-text" ).val("");
        $( "#todo-text" ).focus();
     }
@@ -648,7 +654,7 @@ $(".add-new").click(function(){
   var str = $( "#todo-text" ).val();
   
      if( str != "" && str != null) {
-       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("ul");
+       $( "<li class='row'><a class='remove' href='#'><i class='fa fa-trash-o'></i></a><a class='completed' href='#'><i class='fa fa-check'></i></a><p class='Message'>"+ str +"</p></li>" ).fadeIn().appendTo("#UL");
        $( "#todo-text" ).val("");
        $( "#todo-text" ).focus();
        $(".new-task").slideToggle();
@@ -712,6 +718,8 @@ $(document).keypress(function(e) {
 	spotify(newstring);
        } else if (str.includes("/Hide")){
          Hide();
+       } else if (str.includes("/Prefrences")){ 
+          PrefrencesF();
        } else if (str.includes("/Tutorial")){
          var NewString =  str.replace("/Tutorial","");
          var NewString2 ="/Load#0#Cool Right?,It Even Has Themes!,Type 'Theme1' In The Terminal With a Forward Slash To Try It!,You Can Also Drag Things Around,Try it!,To Complete A Task Press the Green Checkmark,To Remove A Task Press the Red Trashcan,Try These Other Functions Too,/ Clear,/ Name,/ Load,It Also Does Reminders`4:00pm`Today";
@@ -804,6 +812,8 @@ $(".string-new").click(function(){
 	spotify(newstring);
        } else if (str.includes("/Hide")){
          Hide();
+       } else if (str.includes("/Prefrences")){ 
+          PrefrencesF();
        } else {
         Terminal(str);
        }
@@ -1030,6 +1040,7 @@ if (Debug==true){
   Theme = DeafultTheme;
     Lock = true;
     checkCookie();
+    SetUpPrefs();
     AAA();
     //RemindersManagerAlerts();
   }
